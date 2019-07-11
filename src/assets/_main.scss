@@ -1,9 +1,8 @@
-@import '~vuetify-scss';
+@import '../../node_modules/vuetify-scss/main.scss';
 
 $body-font-family: 'Roboto', sans-serif;
 $body-background: #8091ad;
 
 body {
   font-family: $body-font-family;
-  background-color: $body-background;
 }

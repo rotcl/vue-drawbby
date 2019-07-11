@@ -6,7 +6,8 @@
       <v-toolbar-items class="hidden-sm-and-down">
         <v-btn flat small to="/">Home</v-btn>
         <v-btn flat small to="/about">About</v-btn>
-        <v-btn flat small to="/404">Test</v-btn>
+        <v-btn flat primary small to="/login">Login</v-btn>
+        <v-btn flat primary small to="/register">Register</v-btn>
       </v-toolbar-items>
     </v-toolbar>
   </div>

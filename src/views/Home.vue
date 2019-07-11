@@ -2,7 +2,7 @@
   <div class="home">
     <v-container>
       <v-layout wrap row my-3 px-3 py-5>
-        <v-flex xs12 text-xs-center white--text>
+        <v-flex xs12 text-xs-center>
           <h1 class="display-2 font-italic mb-3">¿Qué es Drawbby?</h1>
           <p class="headline font-weight-light">Drawbby es una plataforma de dibujo en base a incentivos.</p>
           <p class="headline font-weight-light">Solo sé tu mismo, si la gente valora tu dibujo, podrás ganas un <router-link to="/">premio de la semana</router-link> e incluso entrar al <router-link to="/">leaderboard</router-link> de los usuarios más destacados!</p>
@@ -22,7 +22,7 @@
           <img v-lazy="'https://via.placeholder.com/150'" alt="placeholder">
         </v-flex>
       </v-layout>
-      <v-layout wrap row text-xs-center mb-3 white--text>
+      <v-layout wrap row text-xs-center mb-3>
         <v-flex xs12>
           <p class="headline">Final de página</p>
         </v-flex>

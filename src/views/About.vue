@@ -2,7 +2,7 @@
   <div class="about">
     <v-container>
       <v-layout wrap row my-3 px-3 py-5>
-        <v-flex xs12 text-xs-center white--text>
+        <v-flex xs12 text-xs-center>
           <h1 class="display-2 font-italic mb-3">Drawbby ✍</h1>
           <p class="headline font-weight-light">Una idea inicialmente pensada por <a href="https://github.com/rotcl" target="_blank" rel="noreferrer noopener">Gabriel Vial</a> como proyecto tesis. 🖨</p>
           <p class="headline font-weight-light">Nace de la necesidad de mostrar al mundo una parte de ti, de expresarte como nunca lo has hecho, de ser tu mismo. 🤯</p>

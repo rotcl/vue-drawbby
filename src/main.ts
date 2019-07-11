@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import Vuetify from 'vuetify'
+import '../node_modules/vuetify-scss/main.scss'
 import '@/assets/_main.scss'
 import router from './router'
 import store from './store'
@@ -14,7 +15,7 @@ Vue.use(VueLazyload)
 
 Vue.use(Vuetify, {
   theme: {
-    main: '#1DB954',
+    primary: '#1DB954',
     back: '#8091ad',
     grey: '#e8e8e8',
   },

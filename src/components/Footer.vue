@@ -2,7 +2,7 @@
   <div class="footer">
     <v-layout row wrap>
       <v-flex xs12 text-xs-center>
-        <p class="grey--text my-3"><router-link to="/" class="main--text">Drawbby </router-link>&copy; {{ new Date().getFullYear() }}</p>
+        <p class="grey--text my-3"><router-link to="/" class="main--text">Drawbby &copy;</router-link> Since {{ new Date().getFullYear() }}</p>
       </v-flex>
     </v-layout>
   </div>
