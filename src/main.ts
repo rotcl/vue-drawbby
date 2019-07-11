@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import Vuetify from 'vuetify'
+import 'vuetify/dist/vuetify.min.css'
 import '../node_modules/vuetify-scss/main.scss'
 import '@/assets/_main.scss'
 import router from './router'
@@ -13,13 +14,7 @@ Vue.config.productionTip = false
 
 Vue.use(VueLazyload)
 
-Vue.use(Vuetify, {
-  theme: {
-    primary: '#1DB954',
-    back: '#8091ad',
-    grey: '#e8e8e8',
-  },
-})
+Vue.use(Vuetify)
 
 new Vue({
   router,

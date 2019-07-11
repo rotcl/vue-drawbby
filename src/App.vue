@@ -1,9 +1,11 @@
 <template>
-  <div id="app">
-    <Nav/>
-    <router-view/>
-    <Footer/>
-  </div>
+  <v-app>
+    <div id="app">
+      <Nav/>
+      <router-view/>
+      <Footer/>
+    </div>
+  </v-app>
 </template>
 
 <script lang="ts">

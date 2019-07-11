@@ -17,7 +17,7 @@ export default {
           email: email,
           password: password,
         }).then( res => {
-          resolve(res)
+          resolve(res.status)
         }).catch( error => {
           reject(null)
         })
@@ -49,7 +49,17 @@ export default {
       })
     },
     logout() {
-      // return
+      return new Promise((resolve, reject) => {
+        Axios.post(`${Configuration.api.base}/users/logout`, {
+          headers: {
+            Authorization: `Bearer ${store.state.token}`,
+          }
+        }).then( res => {
+          resolve(res.data)
+        }).catch( error => {
+          reject(null)
+        })
+      })
     },
     lougoutall(){
       // return

@@ -2,11 +2,11 @@
   <div class="register">
     <v-container>
       <v-layout wrap row my-3 px-3 py-5>
-       <h1 class="headline font-italic mb-3">Registro</h1>
+        <h1 class="headline font-italic mb-3">Registro</h1>
       </v-layout>
       <v-form ref="form" @keyup.native.enter="ontSubmit">
         <v-layout wrap row justify-center>
-          <v-flex xs12 md8 ma-5 class="elevation-3">
+          <v-flex xs12 md8 ma-5 pa-3 class="elevation-3">
             <v-layout wrap row justify-center pa-3>
               <v-flex xs12>
                 <v-text-field v-model="user.name" :rules="rules.name" label="Nombre de usuario"></v-text-field>
@@ -15,7 +15,7 @@
                 <v-text-field v-model="user.email" :rules="rules.email" label="Email"></v-text-field>
               </v-flex>
               <v-flex xs12>
-                <v-text-field v-model="user.password" :rules="rules.password" label="Contraseña" type="password" autocomplete="new-password"></v-text-field>
+                <v-text-field v-model="user.password" :rules="rules.password" :type="showPassword ? 'text': 'password'" :append-icon="showPassword ? 'visibility' : 'visibility_off'" @click:append="showPassword = !showPassword" label="Contraseña"></v-text-field>
               </v-flex>
               <v-flex xs12 v-if="error != null">
                 <p class="red--text">{{ error }}</p>
@@ -27,13 +27,13 @@
                 <v-checkbox v-model="terms" :label="'Acepto los terminos y condiciones'" color="primary"></v-checkbox>
               </v-flex>
               <v-flex xs12 md6 class="text-xs-center text-md-right">
-                <v-btn color="main" @click="terms == true ? submit() : termError()"></v-btn>
+                <v-btn color="success" @click="terms == true ? submit() : termError()"></v-btn>
               </v-flex>
             </v-layout>
           </v-flex>
         </v-layout>
       </v-form>
-      <v-dialog v-model="dialog" persistent max-width="400">
+      <v-dialog v-model="dialog" max-width="400">
         <v-card>
           <v-card-title class="headline">Se ha registrado correctamente</v-card-title>
           <v-progress-linear
@@ -58,9 +58,9 @@ import { Configuration } from '../config'
     return {
       terms: false,
       user: {
-        name: 'testname',
-        email: 'test@test.cl',
-        password: '123456789',
+        name: '',
+        email: '',
+        password: '',
       },
       rules: {
         name: [
@@ -78,7 +78,8 @@ import { Configuration } from '../config'
       },
       dialog: false,
       error: null,
-      errorTerms: false
+      errorTerms: false,
+      showPassword: false,
     }
   },
   methods: {
@@ -91,11 +92,10 @@ import { Configuration } from '../config'
     async submit() {
       // @ts-ignore
       if (this.$refs.form.validate()) {
-        this.$data.error = []
+        this.$data.error = null
         API.users.register(this.$data.user.name, this.$data.user.email, this.$data.user.password).then( (res: any) => {
-          if (res.status != 200) {
+          if (res != 200) {
             this.$data.error = 'Los datos ingresados son incorrectos, compruébelos e intente nuevamente.'
-            console.log('Error')
           } else {
             this.$data.dialog = true
             setTimeout(() => {
@@ -107,7 +107,6 @@ import { Configuration } from '../config'
           }
         }).catch( (error: any) => {
           this.$data.error = 'Error'
-          console.log('Error')
         })
       }
     }
