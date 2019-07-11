@@ -23,11 +23,11 @@
               <v-flex xs12 class="text-xs-center text-md-left" v-if="errorTerms == true">
                 <p class="red--text">Debes aceptar los terminos y condiciones para registrarte</p>
               </v-flex>
-              <v-flex xs12 md6 class="text-xs-center text-md-left">
+              <v-flex xs12 class="text-xs-center text-md-left">
                 <v-checkbox v-model="terms" :label="'Acepto los terminos y condiciones'" color="primary"></v-checkbox>
               </v-flex>
-              <v-flex xs12 md6 class="text-xs-center text-md-right">
-                <v-btn color="success" @click="terms == true ? submit() : termError()"></v-btn>
+              <v-flex xs12 class="text-xs-center text-md-right">
+                <v-btn color="primary" @click="terms == true ? submit() : termError()">Registrar</v-btn>
               </v-flex>
             </v-layout>
           </v-flex>
@@ -65,7 +65,8 @@ import { Configuration } from '../config'
       rules: {
         name: [
           (v: any) => !!v || 'El nombre de usuario es obligatorio',
-          (v: any) => v.toString().length >= 5 || 'El usuario debe contener al menos 5 caracteres'
+          (v: any) => v.toString().length >= 3 || 'El usuario debe contener al menos 3 caracteres',
+          (v: any) => (v || '').indexOf(' ') < 0 || 'El usuario no debe contener espacios'
         ],
         email: [
           (v: any) => !!v || 'El email es requerido',

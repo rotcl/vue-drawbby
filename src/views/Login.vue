@@ -17,8 +17,8 @@
               <v-flex xs12 v-if="error != null">
                 <p class="red--text">{{ error }}</p>
               </v-flex>
-              <v-flex xs12 md6 class="text-xs-center text-md-right">
-                <v-btn color="success" @click="submit()"></v-btn>
+              <v-flex xs12 class="text-xs-center text-md-right">
+                <v-btn color="primary" @click="submit()">Ingresar</v-btn>
               </v-flex>
               <v-flex xs12>
                 <router-link tag="a" to="/recover"><a @click="dialog = false">¿Olvidaste tu contraseña?</a></router-link> / 
