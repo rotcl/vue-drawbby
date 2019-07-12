@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
 import { authRequired } from '@/auth'
+import { admRequired } from '@/adm'
 
 Vue.use(Router)
 
@@ -34,6 +35,12 @@ export default new Router({
       name: 'profile',
       component: () => import(/* webpackChunkName: "profile" */ './views/Profile.vue'),
       beforeEnter: authRequired
+    },
+    {
+      path: '/debug',
+      name: 'debug',
+      component: () => import(/* webpackChunkName: "debug" */ './views/Debug.vue'),
+      beforeEnter: admRequired
     },
     {
       path: '/404',

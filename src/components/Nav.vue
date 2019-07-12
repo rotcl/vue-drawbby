@@ -21,7 +21,7 @@
         </v-menu>
         <v-menu offset-y v-if="user != null">
           <template v-slot:activator="{ on }">
-            <v-btn flat small v-on="on">{{ user }} <v-icon>arrow_drop_down</v-icon></v-btn>
+            <v-btn flat small v-on="on">{{ user.name }} <v-icon>arrow_drop_down</v-icon></v-btn>
           </template>
           <v-list>
             <v-list-tile to="/profile">
@@ -81,5 +81,8 @@
 <style lang="scss">
 .logo {
   max-height: 34px;
+}
+.v-menu__content {
+  position: fixed !important;
 }
 </style>

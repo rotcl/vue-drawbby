@@ -75,7 +75,7 @@ import { Configuration } from '../config'
   methods: {
     async submit() {
       API.users.login(this.$data.users.email, this.$data.users.password).then( (data: any) => {
-        this.$store.commit('setUser', data.user.email)
+        this.$store.commit('setUser', data.user)
         this.$store.commit('setToken', data.token)
 
         this.$data.dialog = true
