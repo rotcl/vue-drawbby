@@ -1,7 +1,10 @@
 <template>
   <div class="nav">
     <v-toolbar fixed>
-      <router-link to="/"><img alt="Drawbby logo" v-lazy="'/img/drawbby-logo.png'" class="logo"></router-link>
+      <!-- <router-link to="/"><img alt="Drawbby logo" v-lazy="'/img/drawbby-logo.png'" class="logo"></router-link> -->
+      <v-toolbar-title>
+        <router-link to="/">Drawbby</router-link>
+      </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
         <v-btn flat small to="/">Home</v-btn>

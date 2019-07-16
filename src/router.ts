@@ -7,6 +7,10 @@ import { admRequired } from '@/adm'
 Vue.use(Router)
 
 export default new Router({
+  scrollBehavior: () => ({
+    x: 0,
+    y: 0
+  }),
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
@@ -31,16 +35,46 @@ export default new Router({
       component: () => import(/* webpackChunkName: "register" */ './views/Register.vue')
     },
     {
-      path: '/profile',
-      name: 'profile',
-      component: () => import(/* webpackChunkName: "profile" */ './views/Profile.vue'),
-      beforeEnter: authRequired
+      path: '/leaderboard',
+      name: 'leaderboard',
+      component: () => import(/* webpackChunkName: "leaderboard" */ './views/Leaderboard.vue')
+    },
+    {
+      path: '/sugest',
+      name: 'sugest',
+      component: () => import(/* webpackChunkName: "sugest" */ './views/Sugest.vue')
+    },
+    {
+      path: '/goals',
+      name: 'goals',
+      component: () => import(/* webpackChunkName: "goals" */ './views/WeeklyGoals.vue')
+    },
+    {
+      path: '/rules',
+      name: 'rules',
+      component: () => import(/* webpackChunkName: "rules" */ './views/Rules.vue')
+    },
+    {
+      path: '/report',
+      name: 'report',
+      component: () => import(/* webpackChunkName: "report" */ './views/Report.vue')
+    },
+    {
+      path: '/contact',
+      name: 'contact',
+      component: () => import(/* webpackChunkName: "contact" */ './views/Contact.vue')
     },
     {
       path: '/debug',
       name: 'debug',
       component: () => import(/* webpackChunkName: "debug" */ './views/Debug.vue'),
       beforeEnter: admRequired
+    },
+    {
+      path: '/profile',
+      name: 'profile',
+      component: () => import(/* webpackChunkName: "profile" */ './views/Profile.vue'),
+      beforeEnter: authRequired
     },
     {
       path: '/404',

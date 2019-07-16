@@ -4,12 +4,12 @@
       <v-layout wrap row my-3 px-3 py-5>
         <h1 class="headline font-italic mb-3">Login</h1>
       </v-layout>
-      <v-form ref="form" @keyup.native.enter="ontSubmit">
+      <v-form ref="form">
         <v-layout wrap row justify-center>
           <v-flex xs12 md8 ma-5 pa-3 class="elevation-3">
             <v-layout wrap row justify-center pa-3>
               <v-flex xs12>
-                <v-text-field v-model="users.email" :rules="rules.email" label="Email"></v-text-field>
+                <v-text-field v-model="users.username" :rules="rules.username" label="Nombre de usuario"></v-text-field>
               </v-flex>
               <v-flex xs12>
                 <v-text-field v-model="users.password" :rules="rules.password" :type="showPassword ? 'text': 'password'" :append-icon="showPassword ? 'visibility' : 'visibility_off'" @click:append="showPassword = !showPassword" label="Contraseña" autocomplete="new-password"></v-text-field>
@@ -54,13 +54,15 @@ import { Configuration } from '../config'
   data() {
     return {
       users: {
-        email: '',
+        username: '',
         password: '',
       },
       rules: {
-        email: [
-          (v: any) => !!v || 'El email es requerido',
-          (v: any) => /^.+@.+\..+/gi.test(v) || 'El email tiene que ser válido'
+        username: [
+          (v: any) => !!v || 'El nombre de usuario es obligatorio',
+          (v: any) => v.toString().length >= 3 || 'El usuario debe contener al menos 3 caracteres',
+          (v: any) => (v || '').indexOf(' ') < 0 || 'El usuario no debe contener espacios',
+          (v: any) => /^[a-z]+$/.test(v) || 'El nombre de usuario no puede contener mayúsculas'
         ],
         password: [
           (v: any) => !!v || 'Contraseña es requerida',
@@ -74,7 +76,7 @@ import { Configuration } from '../config'
   },
   methods: {
     async submit() {
-      API.users.login(this.$data.users.email, this.$data.users.password).then( (data: any) => {
+      API.users.login(this.$data.users.username, this.$data.users.password).then( (data: any) => {
         this.$store.commit('setUser', data.user)
         this.$store.commit('setToken', data.token)
 
@@ -83,7 +85,7 @@ import { Configuration } from '../config'
           this.$router.push({
             path: '/'
           })
-        }, 2000 )
+        }, 1500 )
         console.log('Success')
       }).catch( error => {
         console.log(error)

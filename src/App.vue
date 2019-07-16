@@ -2,7 +2,9 @@
   <v-app>
     <div id="app">
       <Nav/>
-      <router-view/>
+      <v-slide-x-transition mode="out-in">
+        <router-view/>
+      </v-slide-x-transition>
       <Footer/>
     </div>
   </v-app>

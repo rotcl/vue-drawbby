@@ -4,18 +4,24 @@
       <v-layout wrap row my-3 px-3 py-5>
         <h1 class="headline font-italic mb-3">Registro</h1>
       </v-layout>
-      <v-form ref="form" @keyup.native.enter="ontSubmit">
+      <v-form ref="form">
         <v-layout wrap row justify-center>
           <v-flex xs12 md8 ma-5 pa-3 class="elevation-3">
             <v-layout wrap row justify-center pa-3>
               <v-flex xs12>
-                <v-text-field v-model="user.name" :rules="rules.name" label="Nombre de usuario"></v-text-field>
+                <v-text-field v-model="user.name" :rules="rules.name" label="Nombre real"></v-text-field>
+              </v-flex>
+              <v-flex xs12>
+                <v-text-field v-model="user.username" :rules="rules.username" label="Nombre de usuario"></v-text-field>
               </v-flex>
               <v-flex xs12>
                 <v-text-field v-model="user.email" :rules="rules.email" label="Email"></v-text-field>
               </v-flex>
               <v-flex xs12>
                 <v-text-field v-model="user.password" :rules="rules.password" :type="showPassword ? 'text': 'password'" :append-icon="showPassword ? 'visibility' : 'visibility_off'" @click:append="showPassword = !showPassword" label="Contraseña"></v-text-field>
+              </v-flex>
+              <v-flex xs12>
+                <v-text-field v-model="user.confirm" :rules="rules.confirm" :type="showPassword ? 'text': 'password'" :append-icon="showPassword ? 'visibility' : 'visibility_off'" @click:append="showPassword = !showPassword" label="Contraseña"></v-text-field>
               </v-flex>
               <v-flex xs12 v-if="error != null">
                 <p class="red--text">{{ error }}</p>
@@ -59,20 +65,31 @@ import { Configuration } from '../config'
       terms: false,
       user: {
         name: '',
+        username: '',
         email: '',
         password: '',
+        confirm: ''
       },
       rules: {
         name: [
           (v: any) => !!v || 'El nombre de usuario es obligatorio',
           (v: any) => v.toString().length >= 3 || 'El usuario debe contener al menos 3 caracteres',
-          (v: any) => (v || '').indexOf(' ') < 0 || 'El usuario no debe contener espacios'
+        ],
+        username: [
+          (v: any) => !!v || 'El nombre de usuario es obligatorio',
+          (v: any) => v.toString().length >= 3 || 'El usuario debe contener al menos 3 caracteres',
+          (v: any) => (v || '').indexOf(' ') < 0 || 'El usuario no debe contener espacios',
+          (v: any) => /^[a-z]+$/.test(v) || 'El nombre de usuario no puede contener mayúsculas'
         ],
         email: [
           (v: any) => !!v || 'El email es requerido',
           (v: any) => /^.+@.+\..+/gi.test(v) || 'El email tiene que ser válido'
         ],
         password: [
+          (v: any) => !!v || 'Contraseña es requerida',
+          (v: any) => v.toString().length >= 6 || 'La contraseña debe contener al menos 6 caracteres'
+        ],
+        confirm: [
           (v: any) => !!v || 'Contraseña es requerida',
           (v: any) => v.toString().length >= 6 || 'La contraseña debe contener al menos 6 caracteres'
         ],
@@ -94,20 +111,19 @@ import { Configuration } from '../config'
       // @ts-ignore
       if (this.$refs.form.validate()) {
         this.$data.error = null
-        API.users.register(this.$data.user.name, this.$data.user.email, this.$data.user.password).then( (res: any) => {
-          if (res != 200) {
-            this.$data.error = 'Los datos ingresados son incorrectos, compruébelos e intente nuevamente.'
+        API.users.register(this.$data.user.name, this.$data.user.username, this.$data.user.email, this.$data.user.password, this.$data.user.confirm).then( (res: any) => {
+          if (!res.data.success) {
+            this.$data.error = "Error en los datos ingresados"
           } else {
             this.$data.dialog = true
             setTimeout(() => {
               this.$router.push({
-                path: '/'
+                path: '/login'
               })
-            }, 2000 )
-            console.log('Success')
+            }, 1500 )
           }
         }).catch( (error: any) => {
-          this.$data.error = 'Error'
+          this.$data.error = "Error en el servidor"
         })
       }
     }

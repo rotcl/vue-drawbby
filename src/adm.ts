@@ -1,6 +1,7 @@
 import store from '@/store'
 
 export const admRequired = (to: any, from: any, next: any) => {
+  // @ts-ignore
   if (store.state.user != null && store.state.token != null && store.state.user.email == 'megaadmin@gmail.com') {
     next()
   } else {

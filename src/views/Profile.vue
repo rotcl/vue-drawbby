@@ -4,9 +4,16 @@
       <v-layout wrap row my-3 px-3 py-5>
         <h1 class="display-2 font-italic mb-3">Perfil de {{ user.name }}</h1>
         <div v-if="user.email == 'megaadmin@gmail.com'">
-          test
+          <p class="orange--text">pro</p>
         </div>
       </v-layout>
+      <div class="card" v-if="user">
+        <ul class="list-group">
+          <li class="list-group-item">Name: {{ user.name }}</li>
+          <li class="list-group-item">Email: {{ user.email }}</li>
+          <li class="list-group-item">Username: {{ user.username }}</li>
+        </ul>
+      </div>
     </v-container>
   </div>
 </template>

@@ -10,12 +10,14 @@ Axios.defaults.headers['Content-Type'] = 'application/json'
 
 export default {
   users: {
-    register(name: string, email: string, password: string) {
+    register(name: string, username: String, email: string, password: string, confirm_password: String) {
       return new Promise((resolve, reject) => {
-        Axios.post(`${Configuration.api.base}/users/register`, {
+        Axios.post(`${Configuration.api.base}/user/register`, {
           name: name,
+          username: username,
           email: email,
           password: password,
+          confirm_password: confirm_password,
         }).then( res => {
           resolve(res.status)
         }).catch( error => {
@@ -23,10 +25,10 @@ export default {
         })
       })
     },
-    login(email: string, password: string) {
+    login(username: string, password: string) {
       return new Promise((resolve, reject) => {
-        Axios.post(`${Configuration.api.base}/users/login`, {
-          email: email,
+        Axios.post(`${Configuration.api.base}/user/login`, {
+          username: username,
           password: password,
         }).then( res => {
           resolve(res.data)
@@ -37,7 +39,7 @@ export default {
     },
     verify() {
       return new Promise((resolve, reject) => {
-        Axios.get(`${Configuration.api.base}/users/verify`, {
+        Axios.get(`${Configuration.api.base}/user/profile`, {
           headers: {
             Authorization: `Bearer ${store.state.token}`,
           }
@@ -50,7 +52,7 @@ export default {
     },
     logout() {
       return new Promise((resolve, reject) => {
-        Axios.post(`${Configuration.api.base}/users/logout`, {
+        Axios.post(`${Configuration.api.base}/user/logout`, {
           headers: {
             Authorization: `Bearer ${store.state.token}`,
           }
