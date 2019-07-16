@@ -83,7 +83,7 @@ import { Configuration } from '../config'
         this.$data.dialog = true
         setTimeout(() => {
           this.$router.push({
-            path: '/'
+            path: '/profile'
           })
         }, 1500 )
         console.log('Success')
