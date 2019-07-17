@@ -1,8 +1,8 @@
 <template>
-  <div class="temp">
+  <div class="suggest">
     <v-container>
-      <v-layout wrap row my-3 px-3 py-5>
-        <h1 class="display-2 mb-3"><span class="font-italic">Debug </span> 🔧</h1>
+      <v-layout wrap row my-3 px-3 pt-5 pb-2>
+        <h1 class="display-2 mb-3"><span class="font-italic">Ideas </span>💭</h1>
       </v-layout>
       <v-layout wrap row>
         <v-flex xs12 md6>
@@ -26,10 +26,20 @@
           </v-form>
         </v-flex>
         <v-flex xs12 md6>
-          <p class="headline">Últimas ideas: </p>
-          <p class="title font-weight-light ml-3"  v-for="i in ideas.ideas" :key="i">
-            {{ i.name }}
-          </p>
+          <v-layout row wrap>
+            <v-flex md3>
+              <p class="headline">Sugerido el</p>
+              <p class="title font-weight-light ml-2"  v-for="i in ideas.suggest" :key="i">
+                {{ i.date.slice(0, 10) }}
+              </p>
+            </v-flex>
+            <v-flex md9>
+              <p class="headline">Últimas ideas </p>
+              <p class="title font-weight-light ml-3"  v-for="i in ideas.suggest" :key="i">
+                {{ i.name }}
+              </p>
+            </v-flex>
+          </v-layout>
         </v-flex>
       </v-layout>
       <v-dialog v-model="dialog" max-width="400">
@@ -71,16 +81,20 @@ import { mapState } from 'vuex'
   },
   methods: {
     async submit() {
-      API.ideas.new(this.$data.idea, this.$store.state.user.username).then( (data: any) => {
-        console.log('Ok')
+      API.suggests.new(this.$data.idea, this.$store.state.user.username).then( (data: any) => {
+        this.$data.dialog = true
+        setTimeout(() => {
+          // @ts-ignore
+          this.$router.go()
+        }, 1500 )
       }).catch( (error: any) => {
-        console.log('Error')
+        this.$data.error = "Error en el servidor"
       })
     },
   },
   async beforeMount() {
-    this.$data.ideas = await API.ideas.all()
-  }
+    this.$data.ideas = await API.suggests.all()
+  },
 })
-export default class Debug extends Vue {}
+export default class Suggest extends Vue {}
 </script>

@@ -43,10 +43,10 @@
         <v-card>
           <v-card-title class="headline">Se ha registrado correctamente</v-card-title>
           <v-progress-linear
-              indeterminate
-              color="primary"
-              class="mb-0"
-            ></v-progress-linear>
+            indeterminate
+            color="primary"
+            class="mb-0"
+          ></v-progress-linear>
         </v-card>
       </v-dialog>
     </v-container>

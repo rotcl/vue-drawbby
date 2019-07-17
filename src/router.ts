@@ -40,9 +40,9 @@ export default new Router({
       component: () => import(/* webpackChunkName: "leaderboard" */ './views/Leaderboard.vue')
     },
     {
-      path: '/sugest',
-      name: 'sugest',
-      component: () => import(/* webpackChunkName: "sugest" */ './views/Sugest.vue')
+      path: '/suggest',
+      name: 'suggest',
+      component: () => import(/* webpackChunkName: "suggest" */ './views/Suggest.vue')
     },
     {
       path: '/goals',
