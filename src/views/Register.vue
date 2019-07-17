@@ -114,8 +114,9 @@ import { Configuration } from '../config'
         API.users.register(this.$data.user.name, this.$data.user.username, this.$data.user.email, this.$data.user.password, this.$data.user.confirm).then( (data: any) => {
           this.$data.dialog = true
           setTimeout(() => {
-            // @ts-ignore
-            this.$router.go()
+            this.$router.push({
+              path: '/login'
+            })
           }, 1500 )
         }).catch( (error: any) => {
           this.$data.error = "Error en el servidor"
