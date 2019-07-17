@@ -21,12 +21,12 @@
         <v-flex xs12 md4>
           <img v-lazy="'https://via.placeholder.com/150'" alt="placeholder">
         </v-flex>
-      </v-layout> -->
+      </v-layout>
       <v-layout wrap row text-xs-center mb-3>
         <v-flex xs12>
           <p class="headline">Final de página</p>
         </v-flex>
-      </v-layout>
+      </v-layout> -->
     </v-container>
   </div>
 </template>

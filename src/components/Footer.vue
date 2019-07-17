@@ -22,7 +22,13 @@ a {
   color: #4B3E58 !important;
   font-weight: 500 !important;
 }
+
 .footer {
-  background-color: white;
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: white;
+   text-align: center;
 }
 </style>

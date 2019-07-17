@@ -40,11 +40,6 @@ export default new Router({
       component: () => import(/* webpackChunkName: "leaderboard" */ './views/Leaderboard.vue')
     },
     {
-      path: '/suggest',
-      name: 'suggest',
-      component: () => import(/* webpackChunkName: "suggest" */ './views/Suggest.vue')
-    },
-    {
       path: '/goals',
       name: 'goals',
       component: () => import(/* webpackChunkName: "goals" */ './views/WeeklyGoals.vue')
@@ -65,16 +60,22 @@ export default new Router({
       component: () => import(/* webpackChunkName: "contact" */ './views/Contact.vue')
     },
     {
-      path: '/debug',
-      name: 'debug',
-      component: () => import(/* webpackChunkName: "debug" */ './views/Debug.vue'),
-      beforeEnter: admRequired
-    },
-    {
       path: '/profile',
       name: 'profile',
       component: () => import(/* webpackChunkName: "profile" */ './views/Profile.vue'),
       beforeEnter: authRequired
+    },
+    {
+      path: '/suggest',
+      name: 'suggest',
+      component: () => import(/* webpackChunkName: "suggest" */ './views/Suggest.vue'),
+      beforeEnter: authRequired
+    },
+    {
+      path: '/debug',
+      name: 'debug',
+      component: () => import(/* webpackChunkName: "debug" */ './views/Debug.vue'),
+      beforeEnter: admRequired
     },
     {
       path: '/404',
