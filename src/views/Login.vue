@@ -86,9 +86,7 @@ import { Configuration } from '../config'
             path: '/profile'
           })
         }, 1500 )
-        console.log('Success')
       }).catch( error => {
-        console.log(error)
         this.$data.error = 'Datos incorrectos'
       })
     }

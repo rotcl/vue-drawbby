@@ -111,17 +111,12 @@ import { Configuration } from '../config'
       // @ts-ignore
       if (this.$refs.form.validate()) {
         this.$data.error = null
-        API.users.register(this.$data.user.name, this.$data.user.username, this.$data.user.email, this.$data.user.password, this.$data.user.confirm).then( (res: any) => {
-          if (!res.data.success) {
-            this.$data.error = "Error en los datos ingresados"
-          } else {
-            this.$data.dialog = true
-            setTimeout(() => {
-              this.$router.push({
-                path: '/login'
-              })
-            }, 1500 )
-          }
+        API.users.register(this.$data.user.name, this.$data.user.username, this.$data.user.email, this.$data.user.password, this.$data.user.confirm).then( (data: any) => {
+          this.$data.dialog = true
+          setTimeout(() => {
+            // @ts-ignore
+            this.$router.go()
+          }, 1500 )
         }).catch( (error: any) => {
           this.$data.error = "Error en el servidor"
         })
