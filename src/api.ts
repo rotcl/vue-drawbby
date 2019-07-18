@@ -6,8 +6,6 @@ export const ErrorHandler = (res: AxiosResponse, data: any) => {
   return data
 }
 
-Axios.defaults.headers['Content-Type'] = 'application/json'
-
 export default {
   users: {
     register(name: string, username: String, email: string, password: string, confirm_password: String) {
