@@ -1,7 +1,7 @@
 export const Configuration = {
   api: {
     // base: 'http://localhost:3000',
-    base: 'http://18.220.151.197',
+    base: 'https://drawserver.ml',
   },
   Refresh: {
     Timeout: 10 * 1000
