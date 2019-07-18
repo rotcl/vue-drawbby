@@ -7,6 +7,7 @@ export const ErrorHandler = (res: AxiosResponse, data: any) => {
 }
 
 Axios.defaults.headers['Content-Type'] = 'application/json'
+Axios.defaults.headers['Access-Control-Allow-Origin'] = '*'
 
 export default {
   users: {
