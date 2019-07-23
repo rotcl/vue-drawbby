@@ -49,7 +49,7 @@
         <v-flex xs12 md10 lg10>
           <v-divider></v-divider>
            <v-toolbar flat color="white" class="pa-0 mx-0" style="padding:0 !important" >
-              <v-toolbar-title class="google-font pl-0 ml-0 mr-3" style="font-size:200%">{{ title }}</v-toolbar-title>
+              <v-toolbar-title class="google-font pl-0 ml-0 mr-3" style="font-size:200%"><router-link to="/" style="color: #000">{{ title }}</router-link></v-toolbar-title>
               <v-btn
                   v-for="(item,i) in menu4" 
                   :key="i"
@@ -80,20 +80,15 @@
               "icon" : "fab fa-facebook"
           },
           {
-              "name" : "Google Plus",
+              "name" : "Instagram",
               "link" : "/",
-              "icon" : "fab fa-google-plus"
+              "icon" : "fab fa-instagram"
           },
           {
               "name" : "Twitter",
               "link" : "/",
               "icon" : "fab fa-twitter"
           },
-          {
-              "name" : "Meetup",
-              "link" : "/",
-              "icon" : "fab fa-meetup"
-          }
         ],
         menu1: [
           {
