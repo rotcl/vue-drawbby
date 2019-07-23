@@ -2,11 +2,10 @@
   <v-navigation-drawer
     v-model="drawer"
     app
-    temporary
-  >
+    temporary>
     <v-flex xs12 class="pl-3 pt-5 grey lighten-5 pb-2">
       <router-link to="/" style="color: #000">
-      <v-img
+      <!-- <v-img
             :src="require('@/assets/logo.png')"
             :lazy-src="require('@/assets/logo.png')"
             width="10vh">
@@ -18,22 +17,21 @@
                 ma-0>
                 <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
             </v-layout>
-      </v-img>
+      </v-img> -->
       <p class="google-font mt-2" style="font-size:130%">{{ title }}</p>
       </router-link>
+
+      <p class="google-font mt-2" style="font-size:100%" v-if="user != null && user.email == 'megaadmin@gmail.com'">{{ user.username }} 👑<v-icon>arrow_drop_down</v-icon></p>
       
     </v-flex>
     <v-list>
-      <!-- TODO: AGREGAR LOGIN/ REGISTER 
-       TODO: AGREGAR USUARIO TAMBIÉN -->
       <v-list-tile
         v-for="(link, i) in links"
         :key="i"
         :to="link.to"
         :href="link.href"
         @click="onClick($event, link)"
-        class="google-font"
-      >
+        class="google-font">
         <v-list-tile-action>
           <v-icon>{{link.icon}}</v-icon>
         </v-list-tile-action>
@@ -41,7 +39,38 @@
         <v-list-tile-content>
           <v-list-tile-title v-text="link.text" />
         </v-list-tile-content>
-        
+      </v-list-tile>
+      <v-list-tile class="google-font" v-if="user == null" to="/login">
+        <v-list-tile-action>
+          <v-icon>person</v-icon>
+        </v-list-tile-action>
+        <v-list-tile-content>
+          Login
+        </v-list-tile-content>
+      </v-list-tile>
+      <v-list-tile class="google-font" v-if="user == null" to="/register">
+        <v-list-tile-action>
+          <v-icon>person_add</v-icon>
+        </v-list-tile-action>
+        <v-list-tile-content>
+          Register
+        </v-list-tile-content>
+      </v-list-tile>
+      <v-list-tile class="google-font" v-if="user != null" to="/profile">
+        <v-list-tile-action>
+          <v-icon>person</v-icon>
+        </v-list-tile-action>
+        <v-list-tile-content>
+          Profile
+        </v-list-tile-content>
+      </v-list-tile>
+      <v-list-tile class="google-font" v-if="user != null" @click="logoutall">
+        <v-list-tile-action>
+          <v-icon>exit_to_app</v-icon>
+        </v-list-tile-action>
+        <v-list-tile-content>
+          Log out
+        </v-list-tile-content>
       </v-list-tile>
     </v-list>
   </v-navigation-drawer>
@@ -63,7 +92,7 @@
           return this.$store.state.drawer
         },
         set (val) {
-          this.$store.state.setDrawer(val)
+          this.$store.commit('setDrawer', val)
         }
       }
     },

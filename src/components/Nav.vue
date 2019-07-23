@@ -94,9 +94,6 @@
 </script>
 
 <style lang="scss">
-.logo {
-  max-height: 34px;
-}
 .v-menu__content {
   position: fixed !important;
 }
