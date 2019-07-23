@@ -25,19 +25,19 @@
         <v-flex xs12 md10 lg10>
            <v-layout wrap align-start justify-start row class="my-2">
             <v-flex xs12 md3 sm4 lg3 class="py-2">
-              <p class="google-font mb-0" style="font-size: 140%;font-weight: 300;"><b>About</b></p>  
+              <p class="google-font mb-0" style="font-size: 140%;font-weight: 300;"><b>Título 1</b></p>  
               <div v-for="(item,i) in menu1" :key="i" class="mt-1">
                 <a :href="item.Link" class="google-font" target="_blank" style="color: #3E4551;text-decoration: none;font-size:110%">{{item.LinkName}}</a><br>
               </div>
             </v-flex>
             <v-flex xs12 md3 sm4 lg3 class="py-2">
-              <p class="google-font mb-0" style="font-size: 140%;font-weight: 300;"><b>Resources</b></p>  
+              <p class="google-font mb-0" style="font-size: 140%;font-weight: 300;"><b>Título 2</b></p>  
               <div v-for="(item,i) in menu2" :key="i" class="mt-1">
                 <a :href="item.Link" class="google-font" target="_blank" style="color: #3E4551;text-decoration: none;font-size:110%">{{item.LinkName}}</a><br>
               </div>
             </v-flex>
             <v-flex xs12 md3 sm4 lg3 class="py-2">
-              <p class="google-font mb-0" style="font-size: 140%;font-weight: 300;"><b>Developer Console</b></p>  
+              <p class="google-font mb-0" style="font-size: 140%;font-weight: 300;"><b>Título 3</b></p>  
               <div v-for="(item,i) in menu3" :key="i" class="mt-1">
                 <a :href="item.Link" target="_blank" class="google-font" style="color: #3E4551;text-decoration: none;font-size:110%">{{item.LinkName}}</a><br>
               </div>
