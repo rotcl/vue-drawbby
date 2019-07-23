@@ -1,8 +1,22 @@
 @import '../../node_modules/vuetify-scss/main.scss';
 
-$body-font-family: 'Roboto', sans-serif;
-$body-background: #8091ad;
+// $body-font-family: 'Roboto', sans-serif;
+// $body-background: #8091ad;
 
-body {
-  font-family: $body-font-family;
+// body {
+//   font-family: $body-font-family;
+// }
+
+@import "https://use.fontawesome.com/releases/v5.7.0/css/all.css";
+
+@font-face {
+    font-family: google-sans;
+    src: url(fonts/GoogleSans-Regular.ttf);
+}
+.google-font{
+    font-family: google-sans
+};
+
+a {
+    text-decoration: none !important;
 }

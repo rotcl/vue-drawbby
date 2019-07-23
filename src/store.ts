@@ -9,6 +9,19 @@ export default new Vuex.Store({
   state: {
     user: null,
     token: null,
+    drawer: false,
+    items: [ 
+      { text: 'Inicio', to: '/', icon:'home'},
+      { text: 'Acerca de', to: '/about', icon: 'toc'},
+      { text: 'Leaderboard', to: '/leaderboard', icon: 'rounded_corner'},
+      { text: 'Premios', to: '/goals', icon:'group'},
+      { text: 'Contact', to: '/contact', icon:'person'}
+    ]
+  },
+  getters:{
+    links: (state) => {
+      return state.items
+    }
   },
   mutations: {
     setUser(state, user) {
@@ -20,7 +33,9 @@ export default new Vuex.Store({
     logout(state) {
       state.user = null
       state.token = null
-    }
+    },
+    setDrawer: (state, payload) => (state.drawer = payload),
+    toggleDrawer: state => (state.drawer = !state.drawer)
   },
   actions: {
 
