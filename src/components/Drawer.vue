@@ -63,7 +63,7 @@
           return this.$store.state.drawer
         },
         set (val) {
-          this.setDrawer(val)
+          this.$store.state.setDrawer(val)
         }
       }
     },
