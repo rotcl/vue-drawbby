@@ -60,6 +60,12 @@ export default new Router({
       component: () => import(/* webpackChunkName: "contact" */ './views/Contact.vue')
     },
     {
+      path: '/draw',
+      name: 'draw',
+      component: () => import(/* webpackChunkName: "draw" */ './views/Draw.vue'),
+      // beforeEnter: authRequired
+    },
+    {
       path: '/profile',
       name: 'profile',
       component: () => import(/* webpackChunkName: "profile" */ './views/Profile.vue'),
