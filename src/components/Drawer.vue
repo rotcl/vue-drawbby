@@ -45,7 +45,7 @@
           <v-icon>person</v-icon>
         </v-list-tile-action>
         <v-list-tile-content>
-          Login
+          Ingresar
         </v-list-tile-content>
       </v-list-tile>
       <v-list-tile class="google-font" v-if="user == null" to="/register">
@@ -53,7 +53,7 @@
           <v-icon>person_add</v-icon>
         </v-list-tile-action>
         <v-list-tile-content>
-          Register
+          Registrar
         </v-list-tile-content>
       </v-list-tile>
       <v-list-tile class="google-font" v-if="user != null" to="/profile">
@@ -61,7 +61,7 @@
           <v-icon>person</v-icon>
         </v-list-tile-action>
         <v-list-tile-content>
-          Profile
+          Perfil
         </v-list-tile-content>
       </v-list-tile>
       <v-list-tile class="google-font" v-if="user != null" @click="logoutall">
@@ -69,7 +69,7 @@
           <v-icon>exit_to_app</v-icon>
         </v-list-tile-action>
         <v-list-tile-content>
-          Log out
+          Cerrar sesión
         </v-list-tile-content>
       </v-list-tile>
     </v-list>

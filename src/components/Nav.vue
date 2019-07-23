@@ -25,14 +25,14 @@
     </v-btn>  
     <v-menu offset-y v-if="user == null">
       <template v-slot:activator="{ on }">
-        <v-btn class="ml-0 google-font hidden-sm-and-down" style="text-transform: capitalize;" flat v-on="on">Account <v-icon>arrow_drop_down</v-icon></v-btn>
+        <v-btn class="ml-0 google-font hidden-sm-and-down" style="text-transform: capitalize;" flat v-on="on">Cuenta <v-icon>arrow_drop_down</v-icon></v-btn>
       </template>
       <v-list>
         <v-list-tile to="/login">
-          <v-list-tile-title class="ml-0 google-font hidden-sm-and-down" style="text-transform: capitalize;" flat>Login</v-list-tile-title>
+          <v-list-tile-title class="ml-0 google-font hidden-sm-and-down" style="text-transform: capitalize;" flat>Ingresar</v-list-tile-title>
         </v-list-tile>
         <v-list-tile to="/register">
-          <v-list-tile-title class="ml-0 google-font hidden-sm-and-down" style="text-transform: capitalize;" flat>Register</v-list-tile-title>
+          <v-list-tile-title class="ml-0 google-font hidden-sm-and-down" style="text-transform: capitalize;" flat>Registrar</v-list-tile-title>
         </v-list-tile>
       </v-list>
     </v-menu>
@@ -43,10 +43,10 @@
       </template>
       <v-list>
         <v-list-tile to="/profile">
-          <v-list-tile-title class="ml-0 google-font hidden-sm-and-down" style="text-transform: capitalize;" flat>Profile</v-list-tile-title>
+          <v-list-tile-title class="ml-0 google-font hidden-sm-and-down" style="text-transform: capitalize;" flat>Perfil</v-list-tile-title>
         </v-list-tile>
         <v-list-tile @click="logoutall">
-          <v-list-tile-title class="ml-0 google-font hidden-sm-and-down" style="text-transform: capitalize;" flat>Log out</v-list-tile-title>
+          <v-list-tile-title class="ml-0 google-font hidden-sm-and-down" style="text-transform: capitalize;" flat>Cerrar sesión</v-list-tile-title>
         </v-list-tile>
       </v-list>
     </v-menu>
