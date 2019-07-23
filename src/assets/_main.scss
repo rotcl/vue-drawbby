@@ -9,10 +9,10 @@ body {
 
 @font-face {
     font-family: google-sans;
-    src: url(fonts/GoogleSans-Regular.ttf);
+    src: url(../../public/GoogleSans-Regular.ttf);
 }
 .google-font{
-    font-family: google-sans
+    font-family: google-sans !important;
 };
 
 a {
