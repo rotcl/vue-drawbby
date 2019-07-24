@@ -6,17 +6,17 @@
     <v-flex xs12 class="pl-3 pt-5 grey lighten-5 pb-2">
       <router-link to="/" style="color: #000">
       <!-- <v-img
-            :src="require('@/assets/logo.png')"
-            :lazy-src="require('@/assets/logo.png')"
-            width="10vh">
-            <v-layout
-                slot="placeholder"
-                fill-height
-                align-center
-                justify-center
-                ma-0>
-                <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
-            </v-layout>
+        :src="require('@/assets/logo.png')"
+        :lazy-src="require('@/assets/logo.png')"
+        width="10vh">
+        <v-layout
+          slot="placeholder"
+          fill-height
+          align-center
+          justify-center
+          ma-0>
+          <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
+        </v-layout>
       </v-img> -->
       <p class="google-font mt-2" style="font-size:130%">{{ title }}</p>
       </router-link>
