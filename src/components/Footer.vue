@@ -8,7 +8,7 @@
     <v-container fluid style="border-color:#e0e0e0;border-width: 1px;border-style: solid;border-bottom: 0">
       <v-layout wrap align-center justify-center row fill-height class="my-0 py-0">
         <v-flex xs12 md10 sm10 lg10 class="py-0 my-0">
-          <p class="google-font" style="font-size:130%" >Follow Us:
+          <p class="google-font" style="font-size:130%" >Sígue a Drawbby:
             <span v-for="(item,i) in socialLinks" :key="i">
               <v-tooltip top>
                   <v-btn flat icon :href="item.link" target="_blank" slot="activator">
@@ -25,20 +25,20 @@
         <v-flex xs12 md10 lg10>
            <v-layout wrap align-start justify-start row class="my-2">
             <v-flex xs12 md3 sm4 lg3 class="py-2">
-              <p class="google-font mb-0" style="font-size: 140%;font-weight: 300;"><b>Título 1</b></p>  
-              <div v-for="(item,i) in menu1" :key="i" class="mt-1">
+              <p class="google-font mb-0" style="font-size: 140%;font-weight: 300;"><b>Plataforma</b></p>  
+              <div v-for="(item,i) in platform" :key="i" class="mt-1">
                 <a :href="item.Link" class="google-font" target="_blank" style="color: #3E4551;text-decoration: none;font-size:110%">{{item.LinkName}}</a><br>
               </div>
             </v-flex>
             <v-flex xs12 md3 sm4 lg3 class="py-2">
-              <p class="google-font mb-0" style="font-size: 140%;font-weight: 300;"><b>Título 2</b></p>  
-              <div v-for="(item,i) in menu2" :key="i" class="mt-1">
+              <p class="google-font mb-0" style="font-size: 140%;font-weight: 300;"><b>Dibuja</b></p>  
+              <div v-for="(item,i) in draw" :key="i" class="mt-1">
                 <a :href="item.Link" class="google-font" target="_blank" style="color: #3E4551;text-decoration: none;font-size:110%">{{item.LinkName}}</a><br>
               </div>
             </v-flex>
-            <v-flex xs12 md3 sm4 lg3 class="py-2">
-              <p class="google-font mb-0" style="font-size: 140%;font-weight: 300;"><b>Título 3</b></p>  
-              <div v-for="(item,i) in menu3" :key="i" class="mt-1">
+            <v-flex xs12 md3 sm4 lg3 class="py-2" v-if="user != null && user.human == 1">
+              <p class="google-font mb-0" style="font-size: 140%;font-weight: 300;"><b>Admin menu 👑</b></p>  
+              <div v-for="(item,i) in admin" :key="i" class="mt-1">
                 <a :href="item.Link" target="_blank" class="google-font" style="color: #3E4551;text-decoration: none;font-size:110%">{{item.LinkName}}</a><br>
               </div>
             </v-flex>
@@ -51,7 +51,7 @@
            <v-toolbar flat color="white" class="pa-0 mx-0" style="padding:0 !important" >
               <v-toolbar-title class="google-font pl-0 ml-0 mr-3" style="font-size:200%"><router-link to="/" style="color: #000">{{ title }}</router-link></v-toolbar-title>
               <v-btn
-                  v-for="(item,i) in menu4" 
+                  v-for="(item,i) in last" 
                   :key="i"
                   :href="item.Link" target="_blank" 
                   class="ml-0 google-font hidden-sm-and-down"
@@ -68,8 +68,11 @@
 
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator'
+  import { mapState } from 'vuex'
+
 
   @Component({
+    computed: mapState(['user', 'token']),
     data() {
       return {
         title: "Drawbby",
@@ -90,38 +93,38 @@
               "icon" : "fab fa-twitter"
           },
         ],
-        menu1: [
+        platform: [
           {
-            "LinkName" : "Link 1",
-            "Link" : "/"
+            "LinkName" : "Acerca de",
+            "Link" : "/about"
           },
           {
-            "LinkName" : "Link 2",
-            "Link" : "/"
+            "LinkName" : "Reglas",
+            "Link" : "/rules"
           },
           {
-            "LinkName" : "Link 3",
-            "Link" : "/"
+            "LinkName" : "Contacto",
+            "Link" : "/contact"
           },
         ],
-        menu2: [
+        draw: [
           {
-            "LinkName" : "Link 4",
-            "Link" : "/"
+            "LinkName" : "Dibujar ahora",
+            "Link" : "/draw"
           },
           {
-            "LinkName" : "Link 5",
-            "Link" : "/"
+            "LinkName" : "Leaderboards",
+            "Link" : "/leaderboard"
           },
           {
-            "LinkName" : "Link 6",
-            "Link" : "/"
+            "LinkName" : "Premios semanales",
+            "Link" : "/weekly-goals"
           }
         ],
-        menu3: [
+        admin: [
           {
-            "LinkName" : "Link 7",
-            "Link" : "/"
+            "LinkName" : "Debug",
+            "Link" : "/debug"
           },
           {
             "LinkName" : "Link 8",
@@ -132,7 +135,7 @@
             "Link" : "/"
           }
         ],
-        menu4: [
+        last: [
           {
             "LinkName" : "Link 10",
             "Link" : "/"

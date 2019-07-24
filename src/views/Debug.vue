@@ -72,9 +72,10 @@ import { mapState } from 'vuex'
   methods: {
     async submit() {
       API.ideas.new(this.$data.idea, this.$store.state.user.username).then( (data: any) => {
-        console.log('Ok')
+        // @ts-ignore
+        this.$router.go()
       }).catch( (error: any) => {
-        console.log('Error')
+        this.$data.error = "Ha habido un problema, intenta en unos minutos"
       })
     },
   },

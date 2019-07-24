@@ -3,7 +3,7 @@
     <v-container>
       <v-layout wrap row my-3 px-3 py-5>
         <h1 class="display-2 font-italic mb-3">Perfil de {{ user.name }}</h1>
-        <div v-if="user.email == 'megaadmin@gmail.com'">
+        <div v-if="user.human == 1">
           <p class="orange--text">pro</p>
         </div>
       </v-layout>

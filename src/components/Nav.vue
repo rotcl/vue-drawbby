@@ -38,8 +38,8 @@
     </v-menu>
     <v-menu offset-y v-if="user != null">
       <template v-slot:activator="{ on }">
-        <v-btn class="ml-0 google-font hidden-sm-and-down" style="text-transform: capitalize;" flat v-if="user.email == 'megaadmin@gmail.com'" v-on="on">{{ user.username }} 👑<v-icon>arrow_drop_down</v-icon></v-btn>
-        <v-btn class="ml-0 google-font hidden-sm-and-down" style="text-transform: capitalize;" flat v-else v-on="on">{{ user.username }} <v-icon>arrow_drop_down</v-icon></v-btn>
+        <v-btn class="ml-0 google-font hidden-sm-and-down text-uppercase" style="text-transform: capitalize;" flat v-if="user.human == 1" v-on="on">{{ user.username }} 👑<v-icon>arrow_drop_down</v-icon></v-btn>
+        <v-btn class="ml-0 google-font hidden-sm-and-down text-uppercase" style="text-transform: capitalize;" flat v-else v-on="on">{{ user.username }} <v-icon>arrow_drop_down</v-icon></v-btn>
       </template>
       <v-list>
         <v-list-tile to="/profile">
@@ -50,6 +50,16 @@
         </v-list-tile>
       </v-list>
     </v-menu>
+    <v-dialog v-model="log" persistent max-width="400">
+        <v-card>
+          <v-card-title class="headline">Desconectando</v-card-title>
+          <v-progress-linear
+              indeterminate
+              color="primary"
+              class="mb-0"
+            ></v-progress-linear>
+        </v-card>
+      </v-dialog>
   </v-toolbar>
 </template>
 

@@ -21,7 +21,8 @@
       <p class="google-font mt-2" style="font-size:130%">{{ title }}</p>
       </router-link>
 
-      <p class="google-font mt-2" style="font-size:100%" v-if="user != null && user.email == 'megaadmin@gmail.com'">{{ user.username }} 👑<v-icon>arrow_drop_down</v-icon></p>
+      <p class="google-font mt-2 text-uppercase" style="font-size:100%" v-if="user != null && user.human == 1">{{ user.username }} 👑</p>
+      <p class="google-font mt-2 text-uppercase" style="font-size:100%" v-if="user != null && user.email != 'megaadmin@gmail.com'">{{ user.username }} </p>
       
     </v-flex>
     <v-list>
@@ -73,6 +74,16 @@
         </v-list-tile-content>
       </v-list-tile>
     </v-list>
+    <v-dialog v-model="log" persistent max-width="400">
+        <v-card>
+          <v-card-title class="headline">Desconectando</v-card-title>
+          <v-progress-linear
+              indeterminate
+              color="primary"
+              class="mb-0"
+            ></v-progress-linear>
+        </v-card>
+      </v-dialog>
   </v-navigation-drawer>
 </template>
 
@@ -98,6 +109,7 @@
     },
     data() {
       return {
+        log: false,
         title: "Drawbby",
       }
     },
@@ -113,6 +125,16 @@
         if (item.to || !item.href) return
         this.$vuetify.goTo(item.href)
         this.$store.state.setDrawer(false)
+      },
+      logoutall() {
+        this.$data.log = true
+        setTimeout(() => {
+          this.$router.push({
+            path: '/'
+          })
+          this.$store.commit("logout")
+          this.$data.log = false
+        }, 2000)
       }
     }
   })

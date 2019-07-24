@@ -1,16 +1,12 @@
 @import '../../node_modules/vuetify-scss/main.scss';
 
-$body-font-family: 'Roboto', sans-serif;
-$body-background: #8091ad;
 
-body {
-  font-family: $body-font-family;
-}
 
 @font-face {
     font-family: google-sans;
     src: url(../../public/GoogleSans-Regular.ttf);
 }
+
 .google-font{
     font-family: google-sans !important;
 };
