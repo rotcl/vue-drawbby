@@ -68,7 +68,7 @@ import { Configuration } from '../config'
         username: '',
         email: '',
         password: '',
-        confirm: ''
+        confirm: '',
       },
       rules: {
         name: [
