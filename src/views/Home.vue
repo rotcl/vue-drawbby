@@ -23,25 +23,25 @@
                   image
                 </v-flex>
                 <v-flex xs12 sm7 md8 lg8 xl8 class="">
-                  <p class="google-font mb-1" style="font-weight: 350;color: #616161;font-size:300%"><b>Libera tu imaginación con
+                  <p class="p-size-300 mb-1"><b>Libera tu imaginación con
                     <span style="color: #1a73e8;">un dibujo</span>.</b>
                   </p>
-                  <p class="google-font mt-0" style="font-size:180%">Drawbby</p>
-                  <p class="google-font" style="font-size:110%">Descripción corta</p>
-                  <p class="google-font" style="font-size:110%;color:#9e9e9e">
+                  <p class="p-size-170 mt-0">Drawbby</p>
+                  <p class="p-size-110">Descripción corta</p>
+                  <p class="p-size-110 hashtag--text">
                     <span v-for="(item,i) in hashtags" :key="i">
                         #{{item}} &nbsp;
                     </span>
                   </p>
                   <div v-if="user == null">
-                    <v-btn to="/register" class="ma-0 google-font elevation-1" color="#1a73e8" style="text-transform: capitalize;border-radius:5px;color:white">Registrarse</v-btn>
+                    <v-btn to="/register" class="ma-0 btn-prim elevation-1" color="#1a73e8">Registrarse</v-btn>
                     &nbsp;
-                    <v-btn to="/login" round color="#1a73e8" style="text-transform: capitalize;border-radius:5px;text-transform: capitalize;" outline  class="ml-0" dark>Iniciar sesión</v-btn>
+                    <v-btn to="/login" round color="#1a73e8" outline class="ml-0 btn-seco" dark>Iniciar sesión</v-btn>
                   </div>
                   <div v-if="user != null">
-                    <v-btn to="/leaderboard" class="ma-0 google-font elevation-1" color="#1a73e8" style="text-transform: capitalize;border-radius:5px;color:white">Leaderboard</v-btn>
+                    <v-btn to="/leaderboard" class="ma-0 btn-prim elevation-1" color="#1a73e8">Leaderboard</v-btn>
                     &nbsp;
-                    <v-btn to="/draw" round color="#1a73e8" style="text-transform: capitalize;border-radius:5px;text-transform: capitalize;" outline  class="ml-0" dark>Dibujar ahora</v-btn>
+                    <v-btn to="/draw" round color="#1a73e8" outline class="ml-0 btn-seco" dark>Dibujar ahora</v-btn>
                   </div>
                 </v-flex>
               </v-layout>
@@ -55,10 +55,10 @@
             <v-container class="pa-0">
               <v-layout wrap align-center justify-center row fill-height >
                 <v-flex xs12 md3 lg3 class="pa-2">
-                  <p class="google-font" style="font-size:170%">¿Cómo funciona Drawbby?</p>
-                  <p class="google-font" style="font-size:100%">Esta es una plataforma de dibujos en base a incentivos, solo deja fluir tu imaginación.</p>
-                  <p class="google-font" style="font-size:100%">Dibuja y evalúa dibujos de otras personas, puedes ganar maravillosos premios</p>
-                  <p class="google-font" style="font-size:100%">Está desarrollada completamente usando MEVN stack.</p>
+                  <p class="p-size-170">¿Cómo funciona Drawbby?</p>
+                  <p class="p-size-100">Esta es una plataforma de dibujos en base a incentivos, solo deja fluir tu imaginación.</p>
+                  <p class="p-size-100">Dibuja y evalúa dibujos de otras personas, puedes ganar maravillosos premios</p>
+                  <p class="p-size-100">Está desarrollada completamente usando MEVN stack.</p>
                     <span v-for="(item,i) in stack" :key="i">
                       <v-tooltip bottom>
                         <template v-slot:activator="{ on }" >
@@ -71,29 +71,28 @@
                       </v-tooltip>
                     </span>
                     <br><br>
-                    <!-- <v-btn outline target="_blank" round color="cyan" style="text-transform: capitalize;border-radius:5px;text-transform: capitalize;" flat  class="ml-0 google-font hidden-md-and-down" dark>Learn More</v-btn> -->
                   </v-flex> 
                   <v-flex xs12 md9 lg9 class="">
                     <v-layout row wrap>
                       <v-flex xs6 sm6 md3 lg3 class="text-xs-center pa-2">
-                        <v-icon large style="font-size:300%">chat_bubble</v-icon>
-                        <p class="google-font" style="font-size:130%">Reinventa</p>
-                        <p class="google-font" style="font-size:110%">Temáticas nuevas cada 12 horas, para mantenerte activo</p>
+                        <v-icon large class="i-size-300">chat_bubble</v-icon>
+                        <p class="p-size-130">Reinventa</p>
+                        <p class="p-size-110">Temáticas nuevas cada 12 horas, para mantenerte activo</p>
                       </v-flex>
                       <v-flex xs6 sm6 md3 lg3 class="text-xs-center pa-2">
-                        <v-icon large style="font-size:300%">grade</v-icon>
-                        <p class="google-font" style="font-size:130%">Juégatela</p>
-                        <p class="google-font" style="font-size:110%">Premios semanales y mensuales por la comunidad</p>
+                        <v-icon large class="i-size-300">grade</v-icon>
+                        <p class="p-size-130">Juégatela</p>
+                        <p class="p-size-110">Premios semanales y mensuales por la comunidad</p>
                       </v-flex>
                       <v-flex xs6 sm6 md3 lg3 class="text-xs-center pa-2">
-                        <v-icon large style="font-size:300%">lock</v-icon>
-                        <p class="google-font" style="font-size:130%">Seguridad</p>
-                        <p class="google-font" style="font-size:110%">Toda tu información es privada, a menos que quieras compartirla</p>
+                        <v-icon large class="i-size-300">lock</v-icon>
+                        <p class="p-size-130">Seguridad</p>
+                        <p class="p-size-110">Toda tu información es privada, a menos que quieras compartirla</p>
                       </v-flex>
                       <v-flex xs6 sm6 md3 lg3 class="text-xs-center pa-2">
-                        <v-icon large style="font-size:300%">build</v-icon>
-                        <p class="google-font" style="font-size:130%">Semi OpenSource</p>
-                        <p class="google-font" style="font-size:110%">Drawbby es una idea abierta, así que cualquiera puede contribuir</p>
+                        <v-icon large class="i-size-300">build</v-icon>
+                        <p class="p-size-130">Semi OpenSource</p>
+                        <p class="p-size-110">Drawbby es una idea abierta, así que cualquiera puede contribuir</p>
                       </v-flex>
                     </v-layout>
                   </v-flex>

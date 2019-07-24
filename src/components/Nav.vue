@@ -2,22 +2,20 @@
   <v-toolbar
     app
     color="white"
-    height="55px"
-  >
+    height="55px">
     <v-toolbar-side-icon
       class="hidden-md-and-up"
-      @click="toggleDrawer"
-    />
+      @click="toggleDrawer"/>
     <v-toolbar-title class="ml-0 pl-1 mr-1">
-      <span class="google-font"><router-link to="/" style="color: #000">{{ title }}</router-link></span>
+      <span class="nav-1000"><router-link to="/" style="color: #3E4551">{{ title }}</router-link></span>
     </v-toolbar-title>
     <v-spacer />
     <v-btn
         v-for="(link, i) in links"
         :key="i"
         :to="link.to"
-        class="ml-0 google-font hidden-sm-and-down"
-        style="text-transform: capitalize;" 
+        class="ml-0 nav-1000 hidden-sm-and-down"
+        
         flat
         @click="onClick($event, link)"
       >
@@ -25,28 +23,28 @@
     </v-btn>  
     <v-menu offset-y v-if="user == null">
       <template v-slot:activator="{ on }">
-        <v-btn class="ml-0 google-font hidden-sm-and-down" style="text-transform: capitalize;" flat v-on="on">Cuenta <v-icon>arrow_drop_down</v-icon></v-btn>
+        <v-btn class="ml-0 nav-1000 hidden-sm-and-down" flat v-on="on">Cuenta <v-icon>arrow_drop_down</v-icon></v-btn>
       </template>
       <v-list>
         <v-list-tile to="/login">
-          <v-list-tile-title class="ml-0 google-font hidden-sm-and-down" style="text-transform: capitalize;" flat>Ingresar</v-list-tile-title>
+          <v-list-tile-title class="ml-0 nav-1000 hidden-sm-and-down" flat>Ingresar</v-list-tile-title>
         </v-list-tile>
         <v-list-tile to="/register">
-          <v-list-tile-title class="ml-0 google-font hidden-sm-and-down" style="text-transform: capitalize;" flat>Registrar</v-list-tile-title>
+          <v-list-tile-title class="ml-0 nav-1000 hidden-sm-and-down" flat>Registrar</v-list-tile-title>
         </v-list-tile>
       </v-list>
     </v-menu>
     <v-menu offset-y v-if="user != null">
       <template v-slot:activator="{ on }">
-        <v-btn class="ml-0 google-font hidden-sm-and-down text-uppercase" style="text-transform: capitalize;" flat v-if="user.human == 1" v-on="on">{{ user.username }} 👑<v-icon>arrow_drop_down</v-icon></v-btn>
-        <v-btn class="ml-0 google-font hidden-sm-and-down text-uppercase" style="text-transform: capitalize;" flat v-else v-on="on">{{ user.username }} <v-icon>arrow_drop_down</v-icon></v-btn>
+        <v-btn class="ml-0 nav-1000 hidden-sm-and-down text-uppercase" flat v-if="user.human == 1" v-on="on">{{ user.username }} 👑<v-icon>arrow_drop_down</v-icon></v-btn>
+        <v-btn class="ml-0 nav-1000 hidden-sm-and-down text-uppercase" flat v-else v-on="on">{{ user.username }} <v-icon>arrow_drop_down</v-icon></v-btn>
       </template>
       <v-list>
         <v-list-tile to="/profile">
-          <v-list-tile-title class="ml-0 google-font hidden-sm-and-down" style="text-transform: capitalize;" flat>Perfil</v-list-tile-title>
+          <v-list-tile-title class="ml-0 nav-1000 hidden-sm-and-down" flat>Perfil</v-list-tile-title>
         </v-list-tile>
         <v-list-tile @click="logoutall">
-          <v-list-tile-title class="ml-0 google-font hidden-sm-and-down" style="text-transform: capitalize;" flat>Cerrar sesión</v-list-tile-title>
+          <v-list-tile-title class="ml-0 nav-1000 hidden-sm-and-down" flat>Cerrar sesión</v-list-tile-title>
         </v-list-tile>
       </v-list>
     </v-menu>

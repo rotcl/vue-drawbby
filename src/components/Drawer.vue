@@ -18,11 +18,11 @@
           <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
         </v-layout>
       </v-img> -->
-      <p class="google-font mt-2" style="font-size:130%">{{ title }}</p>
+      <p class="drawer-130 mt-2">{{ title }}</p>
       </router-link>
 
-      <p class="google-font mt-2 text-uppercase" style="font-size:100%" v-if="user != null && user.human == 1">{{ user.username }} 👑</p>
-      <p class="google-font mt-2 text-uppercase" style="font-size:100%" v-if="user != null && user.email != 'megaadmin@gmail.com'">{{ user.username }} </p>
+      <p class="drawer-100 mt-2 text-uppercase" v-if="user != null && user.human == 1">{{ user.username }} 👑</p>
+      <p class="drawer-100 mt-2 text-uppercase" v-if="user != null && user.email != 'megaadmin@gmail.com'">{{ user.username }} </p>
       
     </v-flex>
     <v-list>
@@ -32,7 +32,7 @@
         :to="link.to"
         :href="link.href"
         @click="onClick($event, link)"
-        class="google-font">
+        class="drawer-100">
         <v-list-tile-action>
           <v-icon>{{link.icon}}</v-icon>
         </v-list-tile-action>
@@ -41,7 +41,7 @@
           <v-list-tile-title v-text="link.text" />
         </v-list-tile-content>
       </v-list-tile>
-      <v-list-tile class="google-font" v-if="user == null" to="/login">
+      <v-list-tile class="drawer-100" v-if="user == null" to="/login">
         <v-list-tile-action>
           <v-icon>person</v-icon>
         </v-list-tile-action>
@@ -49,7 +49,7 @@
           Ingresar
         </v-list-tile-content>
       </v-list-tile>
-      <v-list-tile class="google-font" v-if="user == null" to="/register">
+      <v-list-tile class="drawer-100" v-if="user == null" to="/register">
         <v-list-tile-action>
           <v-icon>person_add</v-icon>
         </v-list-tile-action>
@@ -57,7 +57,7 @@
           Registrar
         </v-list-tile-content>
       </v-list-tile>
-      <v-list-tile class="google-font" v-if="user != null" to="/profile">
+      <v-list-tile class="drawer-100" v-if="user != null" to="/profile">
         <v-list-tile-action>
           <v-icon>person</v-icon>
         </v-list-tile-action>
@@ -65,7 +65,7 @@
           Perfil
         </v-list-tile-content>
       </v-list-tile>
-      <v-list-tile class="google-font" v-if="user != null" @click="logoutall">
+      <v-list-tile class="drawer-100" v-if="user != null" @click="logoutall">
         <v-list-tile-action>
           <v-icon>exit_to_app</v-icon>
         </v-list-tile-action>

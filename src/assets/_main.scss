@@ -1,16 +1,109 @@
 @import '../../node_modules/vuetify-scss/main.scss';
 
-
-
 @font-face {
-    font-family: google-sans;
-    src: url(../../public/GoogleSans-Regular.ttf);
+	font-family: drawbby;
+	src: url(../../public/GoogleSans-Regular.ttf);
 }
 
 .google-font{
-    font-family: google-sans !important;
+	font-family: drawbby !important;
 };
 
 a {
-    text-decoration: none !important;
+	text-decoration: none !important;
+}
+.nav-100 {
+	font-family: drawbby !important;
+	text-transform: capitalize;
+	font-size: 100%;
+}
+.drawer{
+	&-100 {
+		font-family: drawbby !important;
+		font-size: 100%;
+	}
+	&-130 {
+		font-family: drawbby !important;
+		font-size: 130%;
+	}
+}
+.footer{
+	&-110 {
+		font-family: drawbby !important;
+		text-transform: capitalize;
+		font-size: 110%;
+	}
+	&-130 {
+		font-family: drawbby !important;
+		font-size: 130%;
+	}
+	&-200 {
+		font-family:  drawbby !important;
+		font-size: 200%;
+	}
+}
+
+.p-size{
+	&-100 {
+		font-family: drawbby !important;
+		font-size: 100%;
+	}
+	&-110 {
+		font-family: drawbby !important;
+		font-size: 110%;
+	}
+	&-130 {
+		font-family: drawbby !important;
+		font-size: 130%;
+	}
+	&-140 {
+		font-family: drawbby !important;
+		font-size: 140%;
+		font-weight: 300;
+	}
+	&-170 {
+		font-family: drawbby !important;
+		font-size: 170%;
+	}
+	&-300 {
+		font-family: drawbby !important;
+		font-size: 300%;
+		font-weight: 350;
+		color: #616161 !important;
+	}
+}
+.a-size{
+	&-100 {
+		font-family: drawbby !important;
+		font-size: 100%;
+	}
+	&-110 {
+		font-family: drawbby !important;
+		color: #3E4551 !important;
+		text-decoration: none;
+		font-size:110%;
+	}
+	&-140 {
+		font-family: drawbby !important;
+		text-decoration: none;
+		font-size: 140%;
+	}
+}
+.i-size {
+	&-300 {
+		font-size: 300%;
+	}
+}
+.btn {
+	&-prim {
+		font-family: drawbby !important;
+		text-transform: capitalize;
+		border-radius:5px;
+		color:white !important;
+	}
+	&-seco {
+		font-family: drawbby !important;
+		text-transform: capitalize;
+		border-radius:5px;
+	}
 }
