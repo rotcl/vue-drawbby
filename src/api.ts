@@ -2,6 +2,8 @@ import Axios, { AxiosResponse } from 'axios'
 import store from '@/store'
 import { Configuration } from '@/config'
 
+Axios.defaults.headers['Content-Type'] = 'application/json'
+
 export const ErrorHandler = (res: AxiosResponse, data: any) => {
   return data
 }
