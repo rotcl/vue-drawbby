@@ -3,9 +3,11 @@
     <div id="app">
       <Nav/>
       <Drawer/>
-      <v-slide-x-transition mode="out-in">
-        <router-view/>
-      </v-slide-x-transition>
+      <v-content id="home" class="pb-0">
+        <v-slide-x-transition mode="out-in">
+          <router-view/>
+        </v-slide-x-transition>
+      </v-content>
       <Footer/>
     </div>
   </v-app>
