@@ -7,9 +7,9 @@
             <v-container class="pa-0">
               <v-layout wrap align-center justify-center row fill-height>
                 <v-flex xs12 sm5 md3 lg3 xl3 class="text-xs-center pa-3">
-                  <!-- <v-img
-                    :src="require('img\notFound.png')"
-                    :lazy-src="require('img\notFound.png')"
+                  <v-img
+                    :src="('/img/home.svg')"
+                    :lazy-src="('/img/home.svg')"
                     width="100%">
                     <v-layout
                       slot="placeholder"
@@ -19,8 +19,7 @@
                       ma-0>
                       <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
                     </v-layout>
-                  </v-img> -->
-                  image
+                  </v-img>
                 </v-flex>
                 <v-flex xs12 sm7 md8 lg8 xl8 class="">
                   <p class="p-size-300 mb-1"><b>Libera tu imaginación con

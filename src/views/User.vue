@@ -6,7 +6,7 @@
           <h1 class="display-2 font-italic mb-3">Perfil de {{ token }}</h1>
         </v-flex>
         <v-flex xs12>
-          <p v-for="(item,i) in privateUser.draw" :key="i">
+          <p v-for="(item,i) in privateUser.user.public.draw" :key="i">
             Dibujo {{ item }}
           </p>
         </v-flex>

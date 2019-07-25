@@ -71,7 +71,7 @@ export default {
       return new Promise((resolve, reject) => {
         Axios.get(`${Configuration.api.base}/user/${token}`, {
         }).then( res => {
-          resolve(res.data.user.public)
+          resolve(res.data)
         }).catch( error => {
           reject(error)
         })

@@ -4,14 +4,14 @@
   <v-footer
     color="white"
     height="auto"
-    class="hidden-sm-and-down">
+    class="">
     <v-container fluid style="border-color:#e0e0e0;border-width: 1px;border-style: solid;border-bottom: 0">
       <v-layout wrap align-center justify-center row fill-height class="my-0 py-0">
         <v-flex xs12 md10 sm10 lg10 class="py-0 my-0">
           <p class="footer-130" >Sígue a Drawbby:
             <span v-for="(item,i) in socialLinks" :key="i">
-              <v-tooltip top>
-                  <v-btn flat icon :href="item.link" target="_blank" slot="activator">
+              <v-tooltip bottom>
+                  <v-btn flat icon :href="item.link" slot="activator">
                     <v-icon>{{item.icon}}</v-icon>
                   </v-btn>
                   <span>{{item.name}}</span>
@@ -27,19 +27,25 @@
             <v-flex xs12 md3 sm4 lg3 class="py-2">
               <p class="p-size-140 mb-0"><b>Plataforma</b></p>  
               <div v-for="(item,i) in platform" :key="i" class="mt-1">
-                <a :href="item.Link" target="_blank" class="a-size-110">{{item.LinkName}}</a><br>
+                <router-link :to="item.Link">
+                  <a class="a-size-110">{{item.LinkName}}</a><br>
+                </router-link>
               </div>
             </v-flex>
             <v-flex xs12 md3 sm4 lg3 class="py-2">
               <p class="p-size-140 mb-0"><b>Dibuja</b></p>  
               <div v-for="(item,i) in draw" :key="i" class="mt-1">
-                <a :href="item.Link" target="_blank" class="a-size-110">{{item.LinkName}}</a><br>
+                <router-link :to="item.Link">
+                  <a class="a-size-110">{{item.LinkName}}</a><br>
+                </router-link>
               </div>
             </v-flex>
             <v-flex xs12 md3 sm4 lg3 class="py-2" v-if="user != null && user.human == 1">
               <p class="p-size-140 mb-0"><b>Admin menu 👑</b></p>  
               <div v-for="(item,i) in admin" :key="i" class="mt-1">
-                <a :href="item.Link" target="_blank" class="a-size-110">{{item.LinkName}}</a><br>
+                <router-link :to="item.Link">
+                  <a class="a-size-110">{{item.LinkName}}</a><br>
+                </router-link>
               </div>
             </v-flex>
            </v-layout>
@@ -53,7 +59,7 @@
               <v-btn
                   v-for="(item,i) in last" 
                   :key="i"
-                  :href="item.Link" target="_blank" 
+                  :to="item.Link" 
                   class="ml-0 footer-110 hidden-sm-and-down"
                   flat>
                   {{ item.LinkName }}
@@ -136,11 +142,11 @@
         ],
         last: [
           {
-            "LinkName" : "Link 10",
+            "LinkName" : "Términos y condiciones",
             "Link" : "/"
           },
           {
-            "LinkName" : "Link 11",
+            "LinkName" : "Políticas de privacidad",
             "Link" : "/"
           }
         ],
