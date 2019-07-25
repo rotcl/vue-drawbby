@@ -1,20 +1,17 @@
 
 // <p class="grey--text my-3"><router-link to="/" class="main--text">Drawbby &copy;</router-link> Since {{ new Date().getFullYear() }}</p>
 <template>
-  <v-footer
-    color="white"
-    height="auto"
-    class="">
+  <v-footer color="white" height="auto" class="">
     <v-container fluid style="border-color:#e0e0e0;border-width: 1px;border-style: solid;border-bottom: 0">
       <v-layout wrap align-center justify-center row fill-height class="my-0 py-0">
         <v-flex xs12 md10 sm10 lg10 class="py-0 my-0">
           <p class="footer-130" >Sígue a Drawbby:
             <span v-for="(item,i) in socialLinks" :key="i">
               <v-tooltip bottom>
-                  <v-btn flat icon :href="item.link" slot="activator">
-                    <v-icon>{{item.icon}}</v-icon>
-                  </v-btn>
-                  <span>{{item.name}}</span>
+                <v-btn flat icon :href="item.link" slot="activator">
+                  <v-icon>{{item.icon}}</v-icon>
+                </v-btn>
+                <span>{{item.name}}</span>
               </v-tooltip>
             </span>
           </p>
@@ -23,7 +20,7 @@
       </v-layout>
       <v-layout wrap justify-center row>
         <v-flex xs12 md10 lg10>
-           <v-layout wrap align-start justify-start row class="my-2">
+          <v-layout wrap align-start justify-start row class="my-2">
             <v-flex xs12 md3 sm4 lg3 class="py-2">
               <p class="p-size-140 mb-0"><b>Plataforma</b></p>  
               <div v-for="(item,i) in platform" :key="i" class="mt-1">
@@ -48,23 +45,23 @@
                 </router-link>
               </div>
             </v-flex>
-           </v-layout>
+          </v-layout>
         </v-flex>
       </v-layout>
       <v-layout wrap justify-center row class="mb-0">
         <v-flex xs12 md10 lg10>
           <v-divider></v-divider>
            <v-toolbar flat color="white" class="pa-0 mx-0" style="padding:0 !important">
-              <v-toolbar-title class="footer-200 pl-0 ml-0 mr-3"><router-link to="/" style="color: #3E4551">{{ title }}</router-link></v-toolbar-title>
-              <v-btn
-                  v-for="(item,i) in last" 
-                  :key="i"
-                  :to="item.Link" 
-                  class="ml-0 footer-110 hidden-sm-and-down"
-                  flat>
-                  {{ item.LinkName }}
-              </v-btn>
-            </v-toolbar>
+            <v-toolbar-title class="footer-200 pl-0 ml-0 mr-3"><router-link to="/" style="color: #3E4551">{{ title }}</router-link></v-toolbar-title>
+            <v-btn
+                v-for="(item,i) in last" 
+                :key="i"
+                :to="item.Link" 
+                class="ml-0 footer-110 hidden-sm-and-down"
+                flat>
+                {{ item.LinkName }}
+            </v-btn>
+          </v-toolbar>
         </v-flex>
       </v-layout>
     </v-container>

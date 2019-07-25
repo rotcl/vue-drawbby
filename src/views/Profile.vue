@@ -7,9 +7,6 @@
           <v-badge :color="user.human != 1 ? 'primary' : 'orange'">
             <template v-slot:badge>{{ user.public.levelSystem.level }}</template>
           </v-badge>
-          <div v-if="user.human == 1">
-            <p class="orange--text mb-0">pro</p>
-          </div>
         </div>
       </v-layout>
       <v-layout wrap row my-3 px-3>

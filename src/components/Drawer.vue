@@ -1,29 +1,24 @@
 <template>
-  <v-navigation-drawer
-    v-model="drawer"
-    app
-    temporary>
+  <v-navigation-drawer v-model="drawer" app temporary>
     <v-flex xs12 class="pl-3 pt-5 grey lighten-5 pb-2">
       <router-link to="/" style="color: #000">
-      <!-- <v-img
-        :src="require('@/assets/logo.png')"
-        :lazy-src="require('@/assets/logo.png')"
-        width="10vh">
-        <v-layout
-          slot="placeholder"
-          fill-height
-          align-center
-          justify-center
-          ma-0>
-          <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
-        </v-layout>
-      </v-img> -->
-      <p class="drawer-130 mt-2">{{ title }}</p>
+        <!-- <v-img
+          :src="require('@/assets/logo.png')"
+          :lazy-src="require('@/assets/logo.png')"
+          width="10vh">
+          <v-layout
+            slot="placeholder"
+            fill-height
+            align-center
+            justify-center
+            ma-0>
+            <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
+          </v-layout>
+        </v-img> -->
+        <p class="drawer-130 mt-2">{{ title }}</p>
       </router-link>
-
       <p class="drawer-100 mt-2 text-uppercase" v-if="user != null && user.human == 1">{{ user.username }} 👑</p>
       <p class="drawer-100 mt-2 text-uppercase" v-if="user != null && user.email != 'megaadmin@gmail.com'">{{ user.username }} </p>
-      
     </v-flex>
     <v-list>
       <v-list-tile
@@ -36,7 +31,6 @@
         <v-list-tile-action>
           <v-icon>{{link.icon}}</v-icon>
         </v-list-tile-action>
-
         <v-list-tile-content>
           <v-list-tile-title v-text="link.text" />
         </v-list-tile-content>
@@ -75,15 +69,15 @@
       </v-list-tile>
     </v-list>
     <v-dialog v-model="log" persistent max-width="400">
-        <v-card>
-          <v-card-title class="headline">Desconectando</v-card-title>
-          <v-progress-linear
-              indeterminate
-              color="primary"
-              class="mb-0"
-            ></v-progress-linear>
-        </v-card>
-      </v-dialog>
+      <v-card>
+        <v-card-title class="headline">Desconectando</v-card-title>
+        <v-progress-linear
+          indeterminate
+          color="primary"
+          class="mb-0">
+        </v-progress-linear>
+      </v-card>
+    </v-dialog>
   </v-navigation-drawer>
 </template>
 

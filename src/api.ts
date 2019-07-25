@@ -18,7 +18,7 @@ export default {
           email: email,
           password: password,
           confirm_password: confirm_password,
-          token: Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15),
+          token: Math.random().toString(36).substring(2, 15),
         }).then( res => {
           resolve(res.status)
         }).catch( error => {

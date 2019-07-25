@@ -1,25 +1,18 @@
 <template>
-  <v-toolbar
-    app
-    color="white"
-    height="55px">
-    <v-toolbar-side-icon
-      class="hidden-md-and-up"
-      @click="toggleDrawer"/>
+  <v-toolbar app color="white" height="55px">
+    <v-toolbar-side-icon class="hidden-md-and-up" @click="toggleDrawer"/>
     <v-toolbar-title class="ml-0 pl-1 mr-1">
       <span class="nav-100"><router-link to="/" class="nav-100" style="color: #3E4551">{{ title }}</router-link></span>
     </v-toolbar-title>
     <v-spacer />
     <v-btn
-        v-for="(link, i) in links"
-        :key="i"
-        :to="link.to"
-        class="ml-0 nav-1000 hidden-sm-and-down"
-        
-        flat
-        @click="onClick($event, link)"
-      >
-        {{ link.text }}
+      v-for="(link, i) in links"
+      :key="i"
+      :to="link.to"
+      class="ml-0 nav-1000 hidden-sm-and-down"
+      flat
+      @click="onClick($event, link)">
+      {{ link.text }}
     </v-btn>  
     <v-menu offset-y v-if="user == null">
       <template v-slot:activator="{ on }">
@@ -49,15 +42,15 @@
       </v-list>
     </v-menu>
     <v-dialog v-model="log" persistent max-width="400">
-        <v-card>
-          <v-card-title class="headline">Desconectando</v-card-title>
-          <v-progress-linear
-              indeterminate
-              color="primary"
-              class="mb-0"
-            ></v-progress-linear>
-        </v-card>
-      </v-dialog>
+      <v-card>
+        <v-card-title class="headline">Desconectando</v-card-title>
+        <v-progress-linear
+          indeterminate
+          color="primary"
+          class="mb-0">
+        </v-progress-linear>
+      </v-card>
+    </v-dialog>
   </v-toolbar>
 </template>
 

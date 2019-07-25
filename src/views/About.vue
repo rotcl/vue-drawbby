@@ -69,14 +69,6 @@
       </v-container>
     </v-content>
 
-
-
-
-
-
-
-
-
     <!-- <v-container>
       <v-layout wrap row my-3 px-3 py-5>
         <v-flex xs12 text-xs-center>
