@@ -7,12 +7,14 @@
       </v-layout>
       <v-layout wrap row>
         <v-flex xs11 md5>
+          <canvas id="pixelCanvas" :width="width" :height="height"></canvas>
           <!-- <table class="grid"><tr><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td></tr><tr><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td></tr><tr><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td></tr><tr><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td></tr><tr><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td></tr><tr><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td></tr><tr><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td></tr><tr><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td></tr><tr><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td></tr><tr><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td></tr><tr><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td></tr><tr><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td></tr><tr><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td></tr><tr><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td></tr></table> -->
         </v-flex>
         <v-flex xs1 md7>
           <v-btn color="error" @click="turnRed()">rojo</v-btn>
           <v-btn color="success" @click="turnGreen()">verde</v-btn>
-          <v-btn color="primary" @click="turnBlue()">blue</v-btn>
+          <v-btn color="warning" @click="turnYellow()">amarillo</v-btn>
+          <v-btn color="primary" @click="turnBlue()">azul</v-btn>
         </v-flex>
       </v-layout>
     </v-container>
@@ -21,12 +23,18 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
+import tsdom from 'tsdom'
 
 @Component({
   data() {
     return {
+      height: '400',
+      width: '400',
+      rows: '5',
+      cols: '5',
       red: '#ff0000',
       green: '#00ff00',
+      yelow: '#ffff00',
       blue: '#0000ff',
       color: '#ffffff'
     }
@@ -38,15 +46,21 @@ import { Component, Vue } from 'vue-property-decorator'
     turnGreen() {
       this.$data.color = this.$data.green
     },
+    turnYellow() {
+      this.$data.color = this.$data.yellow
+    },
     turnBlue() {
       this.$data.color = this.$data.blue
     }
   }
 })
+
+
 export default class Draw extends Vue {}
 </script>
 
 <style>
+canvas { border: 2px solid black;}
 .grid {
     margin:1em auto;
     border-collapse:collapse
@@ -65,4 +79,9 @@ export default class Draw extends Vue {}
     font-weight:bold;
     color:white;
 }
+
+canvas{
+    border: 1px solid black;
+}
+
 </style>

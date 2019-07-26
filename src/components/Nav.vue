@@ -16,14 +16,14 @@
     </v-btn>  
     <v-menu offset-y v-if="user == null">
       <template v-slot:activator="{ on }">
-        <v-btn class="ml-0 nav-1000 hidden-sm-and-down" flat v-on="on">Cuenta <v-icon>arrow_drop_down</v-icon></v-btn>
+        <v-btn class="ml-0 nav-1000 hidden-sm-and-down text-uppercase" flat v-on="on">Cuenta <v-icon>arrow_drop_down</v-icon></v-btn>
       </template>
       <v-list>
         <v-list-tile to="/login">
-          <v-list-tile-title class="ml-0 nav-1000 hidden-sm-and-down" flat>Ingresar</v-list-tile-title>
+          <v-list-tile-title class="ml-0 nav-1000 hidden-sm-and-down text-uppercase" flat>Ingresar</v-list-tile-title>
         </v-list-tile>
         <v-list-tile to="/register">
-          <v-list-tile-title class="ml-0 nav-1000 hidden-sm-and-down" flat>Registrar</v-list-tile-title>
+          <v-list-tile-title class="ml-0 nav-1000 hidden-sm-and-down text-uppercase" flat>Registrar</v-list-tile-title>
         </v-list-tile>
       </v-list>
     </v-menu>
@@ -34,10 +34,10 @@
       </template>
       <v-list>
         <v-list-tile to="/profile">
-          <v-list-tile-title class="ml-0 nav-1000 hidden-sm-and-down" flat>Perfil</v-list-tile-title>
+          <v-list-tile-title class="ml-0 nav-1000 hidden-sm-and-down text-uppercase" flat>Perfil</v-list-tile-title>
         </v-list-tile>
         <v-list-tile @click="logoutall">
-          <v-list-tile-title class="ml-0 nav-1000 hidden-sm-and-down" flat>Cerrar sesión</v-list-tile-title>
+          <v-list-tile-title class="ml-0 nav-1000 hidden-sm-and-down text-uppercase" flat>Cerrar sesión</v-list-tile-title>
         </v-list-tile>
       </v-list>
     </v-menu>
