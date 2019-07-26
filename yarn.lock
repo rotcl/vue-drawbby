@@ -6749,6 +6749,11 @@ ts-loader@^5.3.3:
     micromatch "^3.1.4"
     semver "^5.0.1"
 
+tsdom@^0.6.9:
+  version "0.6.9"
+  resolved "https://registry.yarnpkg.com/tsdom/-/tsdom-0.6.9.tgz#ef607137f056ed95d3af374db44e7a728a981335"
+  integrity sha512-dO3t1HI0owMo0tZrvy1EYrHio+UQ/9hFCn9ECjyloOKfGgTmvnUsPNFyy9/QpdcXWZd+MGLoTgyDaCHaTRz2rQ==
+
 tslib@^1.8.0, tslib@^1.8.1, tslib@^1.9.0:
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.10.0.tgz#c3c19f95973fb0a62973fb09d90d961ee43e5c8a"
