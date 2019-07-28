@@ -14,7 +14,7 @@ export default new Vuex.Store({
       { text: 'Inicio', to: '/', icon:'home'},
       { text: 'Acerca de', to: '/about', icon: 'toc'},
       { text: 'Leaderboard', to: '/leaderboard', icon: 'rounded_corner'},
-      { text: 'Premios', to: '/goals', icon:'group'},
+      { text: 'Premios', to: '/weekly-goals', icon:'group'},
       { text: 'Contacto', to: '/contact', icon:'local_post_office'}
     ]
   },
