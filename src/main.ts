@@ -24,7 +24,10 @@ Vue.use(Vuetify, {
     error: '#FF5252',
     info: '#2196F3',
     success: '#4CAF50',
-    warning: '#FFC107'
+    warning: '#FFC107',
+    facebook: '#3b5998',
+    instagram: '#8a3ab9',
+    twitter: '#1da1f2',
   },
   iconfont: 'md',
 })

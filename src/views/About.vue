@@ -29,7 +29,7 @@
                   </v-img>
                 </v-flex>
                 <v-flex xs12 sm7 md8 lg8 class="pa-2 my-0">
-                  <p class="p-size-120">Una idea inicialmente pensada por <a href="https://github.com/rotcl" target="_blank" rel="noreferrer noopener">Gabriel Vial</a> como proyecto tesis 🖨.<br> Nace de la necesidad de mostrar al mundo una parte de ti, de expresarte como nunca lo has hecho, de ser tu mismo 🤯. </p>
+                  <p class="p-size-120">Una idea inicialmente pensada por <a class="a-size-100" href="https://github.com/rotcl" target="_blank" rel="noreferrer noopener">Gabriel Vial</a> como proyecto tesis 🖨.<br> Nace de la necesidad de mostrar al mundo una parte de ti, de expresarte como nunca lo has hecho, de ser tu mismo 🤯. </p>
                   <p class="p-size-120 grey--text mt-3">Muchos no lo saben, pero los dibujos suelen hablar de ti mismo más de lo que crees 🌹.<br> Dejemos un poco de lado la dependencia a las redes sociales, y abramos el alma a los demás a través de unos dibujos 🍃. </p>
                 </v-flex>
               </v-layout>

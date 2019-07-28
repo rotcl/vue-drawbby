@@ -34,7 +34,7 @@ import tsdom from 'tsdom'
       cols: '5',
       red: '#ff0000',
       green: '#00ff00',
-      yelow: '#ffff00',
+      yellow: '#ffff00',
       blue: '#0000ff',
       color: '#ffffff'
     }

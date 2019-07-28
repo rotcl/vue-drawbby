@@ -140,11 +140,11 @@
         last: [
           {
             "LinkName" : "Términos y condiciones",
-            "Link" : "/"
+            "Link" : "/terms"
           },
           {
             "LinkName" : "Políticas de privacidad",
-            "Link" : "/"
+            "Link" : "/privacy"
           }
         ],
       }

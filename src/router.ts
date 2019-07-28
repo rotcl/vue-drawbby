@@ -40,7 +40,7 @@ export default new Router({
       component: () => import(/* webpackChunkName: "leaderboard" */ './views/Leaderboard.vue')
     },
     {
-      path: '/goals',
+      path: '/weekly-goals',
       name: 'goals',
       component: () => import(/* webpackChunkName: "goals" */ './views/WeeklyGoals.vue')
     },
@@ -60,6 +60,16 @@ export default new Router({
       component: () => import(/* webpackChunkName: "contact" */ './views/Contact.vue')
     },
     {
+      path: '/privacy',
+      name: 'privacy',
+      component: () => import(/* webpackChunkName: "privacy" */ './views/Privacy.vue')
+    },
+    {
+      path: '/terms',
+      name: 'terms',
+      component: () => import(/* webpackChunkName: "terms" */ './views/Terms.vue')
+    },
+    {
       path: '/draw',
       name: 'draw',
       component: () => import(/* webpackChunkName: "draw" */ './views/Draw.vue'),
@@ -75,19 +85,19 @@ export default new Router({
       path: '/profile',
       name: 'profile',
       component: () => import(/* webpackChunkName: "profile" */ './views/Profile.vue'),
-      beforeEnter: authRequired
+      // beforeEnter: authRequired
     },
     {
       path: '/suggest',
       name: 'suggest',
       component: () => import(/* webpackChunkName: "suggest" */ './views/Suggest.vue'),
-      beforeEnter: authRequired
+      // beforeEnter: authRequired
     },
     {
       path: '/debug',
       name: 'debug',
       component: () => import(/* webpackChunkName: "debug" */ './views/Debug.vue'),
-      beforeEnter: admRequired
+      // beforeEnter: admRequired
     },
     {
       path: '/404',

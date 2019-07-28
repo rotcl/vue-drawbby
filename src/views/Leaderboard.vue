@@ -1,10 +1,14 @@
 <template>
   <div class="leaderboard">
-    <v-container>
-      <v-layout wrap row my-3 px-3 py-5>
-        <h1 class="display-2 mb-3"><span class="font-italic">Soy un Leaderboard </span>🏅</h1>
-      </v-layout>
-    </v-container>
+    <v-content class="pa-0">
+      <v-container fluid class="mt-2 mb-0">
+        <v-layout wrap align-center justify-center row fill-height class="my-0">
+          <v-flex xs12 md10 class="mb-0">
+            <p class="p-size-200" style="color:#616161">Leaderboard</p>
+          </v-flex>
+        </v-layout>
+      </v-container>
+    </v-content>
   </div>
 </template>
 
