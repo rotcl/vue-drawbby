@@ -4,7 +4,7 @@
       <v-container fluid class="mt-2 mb-0">
         <v-layout wrap align-center justify-center row fill-height class="my-0">
           <v-flex xs12 md10 class="mb-0">
-            <p class="p-size-200" style="color:#616161">Contacto</p>
+            <p class="p-size-200 subtitle--text">Contacto</p>
           </v-flex>
         </v-layout>
       </v-container>
