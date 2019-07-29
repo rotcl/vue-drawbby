@@ -30,9 +30,9 @@
                 </v-flex>
                 <v-flex xs12 sm7 md8 lg8 class="pa-2 my-0">
                   <p class="p-size-120">Para cualquier problema o necesidad de asistencia, puedes escribir por whatsapp o email en todo momento.</p>
-                  <p class="p-size-120 grey--text mt-3">+56 9 3271 9940</p>
-                  <p class="p-size-120 grey--text mt-3">gabriel.vial@drawbby.ml</p>
-                  <p class="p-size-120">O usar el contacto de la zona inferior.</p>
+                  <p class="p-size-120 grey--text mt-3">+56 9 9999 9999</p>
+                  <p class="p-size-120 grey--text mt-3">contacto@drawbby.ml</p>
+                  <p class="p-size-120">O puedes usar el siguiente formulario de contacto.</p>
                 </v-flex>
               </v-layout>
             </v-container>
@@ -43,7 +43,7 @@
         <v-layout wrap align-center justify-center row fill-height>
           <v-flex xs12 md10>
             <v-container class="pa-0 my-0">
-              <v-layout wrap align-start justify-start row fill-height class="my-0">
+              <v-layout wrap align-start justify-start row fill-height>
                 <v-flex xs12 sm7 md8 lg8 class="pa-2 my-0">
                   <v-form ref="form" px-3>
                     <v-layout wrap row pa-3>

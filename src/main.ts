@@ -18,6 +18,7 @@ Vue.use(VueLazyload)
 Vue.use(Vuetify, {
   theme: {
     hashtag: '#9e9e9e',
+    subtitle: '#616161',
     primary: '#518FF5',
     secondary: '#424242',
     accent: '#82B1FF',
