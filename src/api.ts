@@ -125,5 +125,30 @@ export default {
         })
       })
     }
+  },
+  contact: {
+    new(name: String, email: String, message: String) {
+      return new Promise((resolve, reject) => {
+        Axios.post(`${Configuration.api.base}/contact/new`, {
+          name: name,
+          email: email,
+          message: message,
+        }).then( res => {
+          resolve(res.data)
+        }).catch( error => {
+          reject(null)
+        })
+      })
+    },
+    all() {
+      return new Promise((resolve, reject) => {
+        Axios.get(`${Configuration.api.base}/contact/all`, {
+        }).then( res => {
+          resolve(res.data)
+        }).catch( error => {
+          reject(null)
+        })
+      })
+    }
   }
 }
