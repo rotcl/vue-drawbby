@@ -44,7 +44,7 @@
               <v-layout wrap align-start justify-start row fill-height class="my-0">
                 <v-flex xs12 md8 class="pa-2 my-0">
                   <p class="p-size-180 primary--text">Código de conducta</p>
-                  <p class="p-size-110">Cuando te unes a nuestros programas, te unes a una comunidad. Y como cualquier comunidad en crecimiento, algunas reglas básicas sobre el comportamiento esperado son buenas para todos. Estas pautas cubren el comportamiento en línea (por ejemplo, listas de correo, canales sociales) y fuera de línea (por ejemplo, reuniones en persona). Las violaciones de este código de conducta pueden hacer que los miembros sean eliminados del programa. Use su mejor criterio y, si desea más claridad o tiene preguntas, no dude en comunicarse.</p>
+                  <p class="p-size-110">Cuando te unes al programa de Drawbby, te unes a una comunidad, y como cualquier otra comunidad en crecimiento, existen reglas básicas sobre el comportamiento esperado para todos. Estas pautas cubren el comportamiento on-line (canales sociales, listas de correos, etc), y off-line (reuniones en persona, actividades extraprogramáticas). Las violaciones de este código de conducta puede hacer que los miembros sean eliminados de Drawbby. Usa el criterior y si deseas más claridad o tienes más preguntas, no dudes en contactarte con los administradores.</p>
                 </v-flex>
                 <v-flex xs12 md4 lg4 class="pa-2 hidden-sm-and-down">
                   <v-img
