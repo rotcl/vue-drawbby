@@ -85,19 +85,19 @@ export default new Router({
       path: '/profile',
       name: 'profile',
       component: () => import(/* webpackChunkName: "profile" */ './views/Profile.vue'),
-      // beforeEnter: authRequired
+      beforeEnter: authRequired
     },
     {
       path: '/suggest',
       name: 'suggest',
       component: () => import(/* webpackChunkName: "suggest" */ './views/Suggest.vue'),
-      // beforeEnter: authRequired
+      beforeEnter: authRequired
     },
     {
       path: '/debug',
       name: 'debug',
       component: () => import(/* webpackChunkName: "debug" */ './views/Debug.vue'),
-      // beforeEnter: admRequired
+      beforeEnter: admRequired
     },
     {
       path: '/404',
