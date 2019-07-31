@@ -37,7 +37,15 @@
                 </router-link>
               </div>
             </v-flex>
-            <v-flex xs12 md3 sm4 lg3 class="py-2" v-if="user != null && user.human == 1">
+            <v-flex xs12 md3 sm4 lg3 class="py-2" v-if="user != null && user.human == 'community'">
+              <p class="p-size-140 mb-0"><b>Moderator menu 🤺</b></p>  
+              <div v-for="(item,i) in mod" :key="i" class="mt-1">
+                <router-link :to="item.Link">
+                  <a class="a-size-110">{{item.LinkName}}</a><br>
+                </router-link>
+              </div>
+            </v-flex>
+            <v-flex xs12 md3 sm4 lg3 class="py-2" v-if="user != null && user.human == 'tesseract'">
               <p class="p-size-140 mb-0"><b>Admin menu 👑</b></p>  
               <div v-for="(item,i) in admin" :key="i" class="mt-1">
                 <router-link :to="item.Link">
@@ -123,6 +131,16 @@
             "Link" : "/weekly-goals"
           }
         ],
+        mod: [
+          {
+            "LinkName" : "Debug",
+            "Link" : "/debug"
+          },
+          {
+            "LinkName" : "Link 9",
+            "Link" : "/"
+          }
+        ],
         admin: [
           {
             "LinkName" : "Debug",
@@ -133,7 +151,7 @@
             "Link" : "/user/admin"
           },
           {
-            "LinkName" : "Link 9",
+            "LinkName" : "Link 10",
             "Link" : "/"
           }
         ],
