@@ -19,6 +19,9 @@ Vue.use(Vuetify, {
   theme: {
     hashtag: '#9e9e9e',
     subtitle: '#616161',
+    admin: '#FFC107',
+    mod: '#689F38',
+    usr: '#518FF5',
     primary: '#518FF5',
     secondary: '#424242',
     accent: '#82B1FF',

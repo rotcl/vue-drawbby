@@ -29,12 +29,15 @@
     </v-menu>
     <v-menu offset-y v-if="user != null">
       <template v-slot:activator="{ on }">
-        <v-btn class="ml-0 nav-100" flat v-if="user.human == 1" v-on="on">{{ user.username }} 👑<v-icon>arrow_drop_down</v-icon></v-btn>
+        <v-btn class="ml-0 nav-100" flat v-if="user.human == 'admin'" v-on="on">{{ user.username }} 👑<v-icon>arrow_drop_down</v-icon></v-btn>
         <v-btn class="ml-0 nav-100" flat v-else v-on="on">{{ user.username }} <v-icon>arrow_drop_down</v-icon></v-btn>
       </template>
       <v-list>
         <v-list-tile to="/profile">
-          <v-list-tile-title class="ml-0 nav-1000" flat>Perfil</v-list-tile-title>
+          <v-list-tile-title class="ml-0 nav-1000" flat>Perfil privado</v-list-tile-title>
+        </v-list-tile>
+        <v-list-tile :to="`/user/${user.token}`">
+          <v-list-tile-title class="ml-0 nav-1000" flat>Perfil público</v-list-tile-title>
         </v-list-tile>
         <v-list-tile @click="logoutall">
           <v-list-tile-title class="ml-0 nav-1000" flat>Cerrar sesión</v-list-tile-title>

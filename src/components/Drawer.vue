@@ -17,7 +17,7 @@
         </v-img> -->
         <p class="drawer-130 mt-2">{{ title }}</p>
       </router-link>
-      <p class="drawer-100 mt-2 text-uppercase" v-if="user != null && user.human == 1">{{ user.username }} 👑</p>
+      <p class="drawer-100 mt-2 text-uppercase" v-if="user != null && user.human == 'admin'">{{ user.username }} 👑</p>
       <p class="drawer-100 mt-2 text-uppercase" v-if="user != null && user.email != 'megaadmin@gmail.com'">{{ user.username }} </p>
     </v-flex>
     <v-list>
@@ -56,7 +56,15 @@
           <v-icon>person</v-icon>
         </v-list-tile-action>
         <v-list-tile-content>
-          Perfil
+          Perfil público
+        </v-list-tile-content>
+      </v-list-tile>
+      <v-list-tile class="drawer-100" v-if="user != null" :to="`/user/${user.token}`">
+        <v-list-tile-action>
+          <v-icon>lock</v-icon>
+        </v-list-tile-action>
+        <v-list-tile-content>
+          Perfil privado
         </v-list-tile-content>
       </v-list-tile>
       <v-list-tile class="drawer-100" v-if="user != null" @click="logoutall">
