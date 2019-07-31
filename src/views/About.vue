@@ -175,7 +175,7 @@ import { Component, Vue } from 'vue-property-decorator'
       team: [
         {
           "name":"Gabriel Vial",
-          "designation":"CEO Drawbby",
+          "designation":"Developer",
           "twitter":"",
           "linkedin":"https://www.linkedin.com/in/gabriel-v",
           "github":"https://github.com/rotcl",

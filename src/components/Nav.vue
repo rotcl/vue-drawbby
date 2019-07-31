@@ -9,35 +9,35 @@
       v-for="(link, i) in links"
       :key="i"
       :to="link.to"
-      class="ml-0 nav-1000 hidden-sm-and-down"
+      class="ml-0 nav-100 hidden-sm-and-down"
       flat
       @click="onClick($event, link)">
       {{ link.text }}
     </v-btn>  
     <v-menu offset-y v-if="user == null">
       <template v-slot:activator="{ on }">
-        <v-btn class="ml-0 nav-1000 hidden-sm-and-down text-uppercase" flat v-on="on">Cuenta <v-icon>arrow_drop_down</v-icon></v-btn>
+        <v-btn class="ml-0 nav-100" flat v-on="on">Cuenta <v-icon>arrow_drop_down</v-icon></v-btn>
       </template>
       <v-list>
         <v-list-tile to="/login">
-          <v-list-tile-title class="ml-0 nav-1000 hidden-sm-and-down text-uppercase" flat>Ingresar</v-list-tile-title>
+          <v-list-tile-title class="ml-0 nav-100" flat>Ingresar</v-list-tile-title>
         </v-list-tile>
         <v-list-tile to="/register">
-          <v-list-tile-title class="ml-0 nav-1000 hidden-sm-and-down text-uppercase" flat>Registrar</v-list-tile-title>
+          <v-list-tile-title class="ml-0 nav-100" flat>Registrar</v-list-tile-title>
         </v-list-tile>
       </v-list>
     </v-menu>
     <v-menu offset-y v-if="user != null">
       <template v-slot:activator="{ on }">
-        <v-btn class="ml-0 nav-1000 hidden-sm-and-down text-uppercase" flat v-if="user.human == 1" v-on="on">{{ user.username }} 👑<v-icon>arrow_drop_down</v-icon></v-btn>
-        <v-btn class="ml-0 nav-1000 hidden-sm-and-down text-uppercase" flat v-else v-on="on">{{ user.username }} <v-icon>arrow_drop_down</v-icon></v-btn>
+        <v-btn class="ml-0 nav-100" flat v-if="user.human == 1" v-on="on">{{ user.username }} 👑<v-icon>arrow_drop_down</v-icon></v-btn>
+        <v-btn class="ml-0 nav-100" flat v-else v-on="on">{{ user.username }} <v-icon>arrow_drop_down</v-icon></v-btn>
       </template>
       <v-list>
         <v-list-tile to="/profile">
-          <v-list-tile-title class="ml-0 nav-1000 hidden-sm-and-down text-uppercase" flat>Perfil</v-list-tile-title>
+          <v-list-tile-title class="ml-0 nav-1000" flat>Perfil</v-list-tile-title>
         </v-list-tile>
         <v-list-tile @click="logoutall">
-          <v-list-tile-title class="ml-0 nav-1000 hidden-sm-and-down text-uppercase" flat>Cerrar sesión</v-list-tile-title>
+          <v-list-tile-title class="ml-0 nav-1000" flat>Cerrar sesión</v-list-tile-title>
         </v-list-tile>
       </v-list>
     </v-menu>
