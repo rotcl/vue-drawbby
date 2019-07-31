@@ -17,8 +17,9 @@
         </v-img> -->
         <p class="drawer-130 mt-2">{{ title }}</p>
       </router-link>
-      <p class="drawer-100 mt-2 text-uppercase" v-if="user != null && user.human == 'admin'">{{ user.username }} 👑</p>
-      <p class="drawer-100 mt-2 text-uppercase" v-if="user != null && user.email != 'megaadmin@gmail.com'">{{ user.username }} </p>
+      <p class="drawer-100 mt-2 text-uppercase" v-if="user != null && user.human == 'tesseract'">{{ user.username }} 👑</p>
+      <p class="drawer-100 mt-2 text-uppercase" v-if="user != null && user.human == 'community'">{{ user.username }} 🤺</p>
+      <p class="drawer-100 mt-2 text-uppercase" v-if="user != null && user.human == 'normal'">{{ user.username }}</p>
     </v-flex>
     <v-list>
       <v-list-tile

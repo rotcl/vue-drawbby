@@ -29,8 +29,9 @@
     </v-menu>
     <v-menu offset-y v-if="user != null">
       <template v-slot:activator="{ on }">
-        <v-btn class="ml-0 nav-100" flat v-if="user.human == 'admin'" v-on="on">{{ user.username }} 👑<v-icon>arrow_drop_down</v-icon></v-btn>
-        <v-btn class="ml-0 nav-100" flat v-else v-on="on">{{ user.username }} <v-icon>arrow_drop_down</v-icon></v-btn>
+        <v-btn class="ml-0 nav-100" flat v-if="user.human == 'tesseract'" v-on="on">{{ user.username }} 👑<v-icon>arrow_drop_down</v-icon></v-btn>
+        <v-btn class="ml-0 nav-100" flat v-if="user.human == 'community'" v-on="on">{{ user.username }} 🤺<v-icon>arrow_drop_down</v-icon></v-btn>
+        <v-btn class="ml-0 nav-100" flat v-if="user.human == 'normal'" v-on="on">{{ user.username }} <v-icon>arrow_drop_down</v-icon></v-btn>
       </template>
       <v-list>
         <v-list-tile to="/profile">
