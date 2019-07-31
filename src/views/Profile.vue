@@ -30,7 +30,7 @@
       <v-container fluid class="mt-2 mb-0" v-if="show">
         <v-layout wrap align-center justify-center row fill-height class="my-0">
           <v-flex xs12 md10 class="mb-0">
-            <p class="p-size-200 subtitle--text">Dibujos de {{ user.name }}</p>
+            <p class="p-size-200 subtitle--text">Tus dibujos</p>
             <v-layout wrap row align-center justify-center fill-height class="my-0">
               <v-flex xs6 md3 px-5 mb-4 v-for="(item, i) in privateUser.user.public.draw" :key="i" text-xs-center>
                 {{ item }}

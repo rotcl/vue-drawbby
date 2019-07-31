@@ -76,7 +76,7 @@ export default new Router({
       // beforeEnter: authRequired
     },
     {
-      path: '/user/:token',
+      path: '/user/:ptoken',
       name: 'private',
       component: () => import(/* webpackChunkName: "user" */ './views/User.vue'),
       props: true,

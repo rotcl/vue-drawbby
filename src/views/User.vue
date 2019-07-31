@@ -12,16 +12,19 @@
                     <span>Nivel</span>
                   </v-tooltip>
                 </template>
-                <span class="p-size-200 subtitle--text mb-0" >Perfil de {{ token }}</span>
+                <span class="p-size-200 subtitle--text mb-0" >Perfil de {{ ptoken }}</span>
               </v-badge>
             </div>
+          </v-flex>
+          <v-flex xs12 md10 class="mb-0" v-if="user != null && user.token == ptoken">
+            <p class="p-size-110">Esta es tu cuenta pública, usando esta url puedes compartir de forma anónima tus dibujos con el mundo.</p>
           </v-flex>
         </v-layout>
       </v-container>
       <v-container fluid class="mt-2 mb-0">
         <v-layout wrap align-center justify-center row fill-height class="my-0">
           <v-flex xs12 md10 class="mb-0">
-            <p class="p-size-200 subtitle--text">Dibujos de {{ token }}</p>
+            <p class="p-size-200 subtitle--text">Dibujos</p>
             <v-layout wrap row align-center justify-center fill-height class="my-0">
               <v-flex xs6 md3 px-5 mb-4 v-for="(item, i) in privateUser.user.public.draw" :key="i" text-xs-center>
                 {{ item }}
@@ -62,10 +65,12 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'
+import { mapState } from 'vuex'
 import Axios from 'axios'
 import API from '../api'
 
 @Component({
+  computed: mapState(['user', 'token']),
   data() {
     return {
       privateUser: null,
@@ -73,11 +78,11 @@ import API from '../api'
     }
   },
   async beforeMount() {
-    this.$data.privateUser = await API.users.find(this.$props.token)
+    this.$data.privateUser = await API.users.find(this.$props.ptoken)
     this.$data.show = true
   },
 })
 export default class User extends Vue {
-  @Prop() token: any
+  @Prop() ptoken: any
 }
 </script>
