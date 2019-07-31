@@ -21,17 +21,17 @@
       <v-layout wrap justify-center row>
         <v-flex xs12 md10 lg10>
           <v-layout wrap align-start justify-start row class="my-2">
-            <v-flex xs12 md3 sm4 lg3 class="py-2">
-              <p class="p-size-140 mb-0"><b>Plataforma</b></p>  
-              <div v-for="(item,i) in platform" :key="i" class="mt-1">
+            <v-flex xs6 md3 sm4 lg3 class="py-2">
+              <p class="p-size-140 mb-0"><b>Dibuja</b></p>  
+              <div v-for="(item,i) in draw" :key="i" class="mt-1">
                 <router-link :to="item.Link">
                   <a class="a-size-110">{{item.LinkName}}</a><br>
                 </router-link>
               </div>
             </v-flex>
-            <v-flex xs12 md3 sm4 lg3 class="py-2">
-              <p class="p-size-140 mb-0"><b>Dibuja</b></p>  
-              <div v-for="(item,i) in draw" :key="i" class="mt-1">
+            <v-flex xs6 md3 sm4 lg3 class="py-2">
+              <p class="p-size-140 mb-0"><b>Plataforma</b></p>  
+              <div v-for="(item,i) in platform" :key="i" class="mt-1">
                 <router-link :to="item.Link">
                   <a class="a-size-110">{{item.LinkName}}</a><br>
                 </router-link>
@@ -103,6 +103,24 @@
               "icon" : "fab fa-twitter"
           },
         ],
+        draw: [
+          {
+            "LinkName" : "Dibujar ahora",
+            "Link" : "/draw"
+          },
+          {
+            "LinkName" : "Leaderboards",
+            "Link" : "/leaderboard"
+          },
+          {
+            "LinkName" : "Premios semanales",
+            "Link" : "/weekly-goals"
+          },
+          {
+            "LinkName" : "Sugerir temática",
+            "Link" : "/suggest"
+          }
+        ],
         platform: [
           {
             "LinkName" : "Acerca de",
@@ -116,20 +134,6 @@
             "LinkName" : "Contacto",
             "Link" : "/contact"
           },
-        ],
-        draw: [
-          {
-            "LinkName" : "Dibujar ahora",
-            "Link" : "/draw"
-          },
-          {
-            "LinkName" : "Leaderboards",
-            "Link" : "/leaderboard"
-          },
-          {
-            "LinkName" : "Premios semanales",
-            "Link" : "/weekly-goals"
-          }
         ],
         mod: [
           {

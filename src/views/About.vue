@@ -126,7 +126,7 @@
                   <p class="p-size-130">Los beta testers de la comunidad son personas de rubros distintos, para tener miradas completamente distintas e independientes del uso de la plataforma, en pro de crear una comunidad más completa.</p>
                   <v-divider></v-divider>
                 </v-flex>
-                <v-flex xs12 md3 lg3 v-for="(item, i) in testers" :key="i">
+                <v-flex xs6 md3 lg3 v-for="(item, i) in testers" :key="i">
                   <v-list three-line class="pa-2">
                     <template>
                       <v-list-tile :key="item.name" avatar>

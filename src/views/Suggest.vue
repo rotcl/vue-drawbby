@@ -17,19 +17,19 @@
                   <v-form ref="form">
                     <v-layout wrap row pa-3>
                       <v-flex xs12>
-                        <v-text-field v-model="idea" :rules="rules.idea" label="Idea a sugerir"></v-text-field>
+                        <v-text-field counter="20" v-model="idea" :rules="rules.idea" label="Idea a sugerir"></v-text-field>
                       </v-flex>
                       <v-flex xs12 v-if="error != null">
                         <p class="red--text">{{ error }}</p>
                       </v-flex>
-                      <v-flex xs12 class="text-xs-center text-md-right">
+                      <v-flex xs12 mt-2 class="text-xs-center text-md-right">
                         <v-btn color="primary" @click="submit()">Enviar</v-btn>
                       </v-flex>
                     </v-layout>
                   </v-form>
                 </v-flex>
                 <v-flex xs12 sm7 md8 lg8 class="pa-2 my-0">
-                  <p class="p-size-120">Herramienta debug para administración para poder agregar ideas directamente a la lista final que se incluirá semana a semana.</p>
+                  <p class="p-size-120">Acá podrás sugerir la idea de dibujo que te guste, el límite es tu imaginación (y 20 caracteres).</p>
                   <p class="p-size-120 grey--text mt-3">En la sección inferior aparecerán las últimas 8 ideas agregadas.</p>
                 </v-flex>
               </v-layout>
@@ -42,9 +42,13 @@
           <v-flex xs12 md10>
             <v-container class="pa-0 my-0">
               <v-layout wrap align-start justify-start row fill-height class="my-0">
-                <v-flex xs12 md8 class="pa-2 my-0">
+                <v-flex xs12 md4 class="pa-2 my-0">
                   <p class="p-size-180 primary--text">Últimas 8 ideas</p>
-                  <p class="p-size-110" v-for="i in ideas.suggest" :key="i"> {{ i.name }} - {{ i.date.slice(0, 10) }}</p>
+                  <p class="p-size-110" v-for="i in ideas.suggest" :key="i">{{ i.name }}</p>
+                </v-flex>
+                <v-flex xs12 md4 class="pa-2 my-0" hidden-sm-and-down>
+                  <p class="p-size-180 primary--text">Fecha:</p>
+                  <p class="p-size-110" v-for="i in ideas.suggest" :key="i">{{ i.date.slice(0, 10) }}</p>
                 </v-flex>
                 <v-flex xs12 md4 lg4 class="pa-2 hidden-sm-and-down">
                   <v-img
@@ -98,6 +102,7 @@ import { mapState } from 'vuex'
         idea: [
           (v: any) => !!v || '¿Y la idea donde está?',
           (v: any) => v.toString().length >= 3 || 'La idea debe contener al menos 3 caracteres',
+          (v: any) => v.toString().length <= 20 || 'La idea no debe superar los 20 caracteres',
         ],
       },
       dialog: false,
