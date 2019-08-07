@@ -7,10 +7,15 @@ import { admRequired } from '@/adm'
 Vue.use(Router)
 
 export default new Router({
-  scrollBehavior: () => ({
-    x: 0,
-    y: 0
-  }),
+  scrollBehavior(to, from, savedPosition) {
+		if (to.hash) {
+			return { selector: to.hash }
+		} else if (savedPosition) {
+    		return savedPosition;
+    	} else {
+			return { x: 0, y: 0 }
+		}
+	},
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
@@ -73,7 +78,7 @@ export default new Router({
       path: '/draw',
       name: 'draw',
       component: () => import(/* webpackChunkName: "draw" */ './views/Draw.vue'),
-      // beforeEnter: authRequired
+      beforeEnter: authRequired
     },
     {
       path: '/user/:ptoken',
@@ -85,19 +90,19 @@ export default new Router({
       path: '/profile',
       name: 'profile',
       component: () => import(/* webpackChunkName: "profile" */ './views/Profile.vue'),
-      // beforeEnter: authRequired
+      beforeEnter: authRequired
     },
     {
       path: '/suggest',
       name: 'suggest',
       component: () => import(/* webpackChunkName: "suggest" */ './views/Suggest.vue'),
-      // beforeEnter: authRequired
+      beforeEnter: authRequired
     },
     {
       path: '/debug',
       name: 'debug',
       component: () => import(/* webpackChunkName: "debug" */ './views/Debug.vue'),
-      // beforeEnter: admRequired
+      beforeEnter: admRequired
     },
     {
       path: '/404',
