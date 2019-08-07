@@ -69,7 +69,7 @@ export default {
     },
     find(token: String) {
       return new Promise((resolve, reject) => {
-        Axios.get(`${Configuration.api.base}/user/${token}`, {
+        Axios.get(`${Configuration.api.base}/user/find/${token}`, {
         }).then( res => {
           resolve(res.data)
         }).catch( error => {
