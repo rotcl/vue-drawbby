@@ -1,9 +1,9 @@
 export const Configuration = {
   api: {
-    base: process.env.VUE_APP_SERVER,
+    // base: process.env.VUE_APP_SERVER,
     // base: 'http://localhost:3000',
-    // base: 'https://drawserver.ml',
-    // base: '18.220.151.197'
+    base: 'https://drawserver.ml',
+    // base: 'http://18.220.151.197'
     // base: 'https://napi.gavial.now.sh',
   },
   Refresh: {
