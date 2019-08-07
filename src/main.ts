@@ -8,6 +8,8 @@ import '@/assets/_main.scss'
 import router from './router'
 import store from './store'
 import VueLazyload from 'vue-lazyload'
+// @ts-ignore
+import VueMultianalytics from 'vue-multianalytics'
 
 import './registerServiceWorker'
 
@@ -15,6 +17,21 @@ Vue.config.productionTip = false
 
 Vue.use(VueLazyload)
 
+let gaConfig = {
+  appName: 'Drawbby', 
+  appVersion: '0.1', 
+  trackingId: 'UA-145276594-1', 
+  globalDimensions: [],
+  globalMetrics: [],
+}
+Vue.use(VueMultianalytics, {
+  modules: {
+    ga: gaConfig,
+  },
+  routing: {
+    vueRouter: router
+  }
+})
 Vue.use(Vuetify, {
   theme: {
     hashtag: '#9e9e9e',
