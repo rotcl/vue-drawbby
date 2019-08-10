@@ -21,7 +21,7 @@
                     </v-layout>
                   </v-img>
                 </v-flex>
-                <v-flex xs12 sm7 md8 lg8 xl8 class="">
+                <v-flex xs12 sm7 md8 lg8 xl8>
                   <p class="p-size-300 mb-1"><b>Libera tu imaginación con
                     <span style="color: #1a73e8;">un dibujo</span>.</b>
                   </p>
