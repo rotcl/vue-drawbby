@@ -34,7 +34,7 @@ export default {
         }).then( res => {
           resolve(res.data)
         }).catch( error => {
-          reject(null)
+          reject(error.response.data)
         })
       })
     },

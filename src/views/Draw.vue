@@ -1,5 +1,10 @@
 <template>
   <div class="draw">
+    
+
+
+
+
     <v-container>
       <v-layout wrap row my-3 px-3 pt-5 pb-0>
         <h1 class="display-2 font-italic mb-3">Dibuja</h1>
@@ -7,8 +12,11 @@
       </v-layout>
       <v-layout wrap row>
         <v-flex xs11 md5>
-          <canvas id="pixelCanvas" :width="width" :height="height"></canvas>
-          <!-- <table class="grid"><tr><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td></tr><tr><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td></tr><tr><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td></tr><tr><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td></tr><tr><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td></tr><tr><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td></tr><tr><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td></tr><tr><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td></tr><tr><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td></tr><tr><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td></tr><tr><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td></tr><tr><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td></tr><tr><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td></tr><tr><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td><td id="cell"></td></tr></table> -->
+          <div id="art">
+            <div class="row" v-for="r in rows" :key="r">
+              <div class="pixel" v-for="c in cols" :key="c" @click="handl"></div>
+            </div>
+          </div>
         </v-flex>
         <v-flex xs1 md7>
           <v-btn color="error" @click="turnRed()">rojo</v-btn>
@@ -30,13 +38,14 @@ import tsdom from 'tsdom'
     return {
       height: '400',
       width: '400',
-      rows: '5',
-      cols: '5',
-      red: '#ff0000',
-      green: '#00ff00',
-      yellow: '#ffff00',
-      blue: '#0000ff',
-      color: '#ffffff'
+      rows: ['','','','','','','','','','','',''],
+      cols: ['','','','','','','','','','','',''],
+      red: 'red',
+      green: 'green',
+      yellow: 'yellow',
+      blue: 'blue',
+      color: '',
+      selectedColor: null,
     }
   },
   methods: {
@@ -51,6 +60,36 @@ import tsdom from 'tsdom'
     },
     turnBlue() {
       this.$data.color = this.$data.blue
+    },
+    handl(event){
+      let el = tsdom(event.target)
+      console.log(this.$data.color)
+      if (this.$data.color == 'red') {
+        el.removeClass('blue')
+        el.removeClass('yellow')
+        el.removeClass('green')
+        el.addClass(this.$data.color)
+      }
+      if (this.$data.color == 'green') {
+        el.removeClass('blue')
+        el.removeClass('yellow')
+        el.removeClass('red')
+        el.addClass(this.$data.color)
+      }
+      if (this.$data.color == 'blue') {
+        el.removeClass('red')
+        el.removeClass('yellow')
+        el.removeClass('green')
+        el.addClass(this.$data.color)
+      }
+      if (this.$data.color == 'yellow') {
+        el.removeClass('blue')
+        el.removeClass('red')
+        el.removeClass('green')
+        el.addClass(this.$data.color)
+      }
+      console.log(event.target)
+
     }
   }
 })
@@ -60,28 +99,28 @@ export default class Draw extends Vue {}
 </script>
 
 <style>
-canvas { border: 2px solid black;}
-.grid {
-    margin:1em auto;
-    border-collapse:collapse
+#art{
+  display: table;
+  border-spacing: 1px;
+  background-color: black;
+  border: 0.5px solid black;
 }
-.grid td {
-    cursor:pointer;
-    width:30px;
-    height:30px;
-    border:1px solid #ccc;
-    text-align:center;
-    font-family:sans-serif;
-    font-size:9px;
+.pixel {
+  display: table-cell;
+  background-color: white;
+  width: 32px;
+  height: 32px;
 }
-.grid td.clicked {
-    background-color:black;
-    font-weight:bold;
-    color:white;
+.red {
+  background-color: red;
 }
-
-canvas{
-    border: 1px solid black;
+.blue {
+  background-color: blue;
 }
-
+.green {
+  background-color: green;
+}
+.yellow {
+  background-color: yellow;
+}
 </style>

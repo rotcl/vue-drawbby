@@ -4,17 +4,7 @@
       <v-container fluid class="mt-2 mb-0">
         <v-layout wrap align-center justify-center row fill-height class="my-0">
           <v-flex xs12 md10 class="mb-0">
-            <div class="text-center">
-              <v-badge :color="privateUser.user.public.type">
-                <template v-slot:badge>
-                  <v-tooltip right>
-                    <p class="" slot="activator">{{ privateUser.user.public.levelSystem.level }}</p>
-                    <span>Nivel</span>
-                  </v-tooltip>
-                </template>
-                <span class="p-size-200 subtitle--text mb-0" >Perfil de {{ ptoken }}</span>
-              </v-badge>
-            </div>
+            <span class="p-size-200 subtitle--text mb-0" >Perfil de {{ ptoken }}</span>
           </v-flex>
           <v-flex xs12 md10 class="mb-0" v-if="user != null && user.token == ptoken">
             <p class="p-size-110">Esta es tu cuenta pública, usando esta url puedes compartir de forma anónima tus dibujos con el mundo.</p>
@@ -25,7 +15,7 @@
         <v-layout wrap align-center justify-center row fill-height class="my-0">
           <v-flex xs12 md10 class="mb-0">
             <p class="p-size-200 subtitle--text">Dibujos</p>
-            <v-layout wrap row align-center justify-center fill-height class="my-0">
+            <v-layout wrap row align-start justify-start fill-height class="my-0" v-if="privateUser.user.public.draw >= 1">
               <v-flex xs6 md3 px-5 mb-4 v-for="(item, i) in privateUser.user.public.draw" :key="i" text-xs-center>
                 {{ item }}
                 <v-img
@@ -40,6 +30,11 @@
                     <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
                   </v-layout>
                 </v-img>
+              </v-flex>
+            </v-layout>
+            <v-layout wrap row align-start justify-start fill-height class="my-0" v-else>
+              <v-flex xs12>
+                <p class="p-size-110">No hay dibujos en tu cuenta aún</p>
               </v-flex>
             </v-layout>
           </v-flex>

@@ -30,8 +30,26 @@
       <v-container fluid class="mt-2 mb-0" v-if="show">
         <v-layout wrap align-center justify-center row fill-height class="my-0">
           <v-flex xs12 md10 class="mb-0">
+            <p class="p-size-200 subtitle--text">Tu información</p>
+            <p class="p-size-110">Usuario desde <span class="hashtag--text">{{ user.date.substring(0, 10) }}</span></p>
+            <p class="p-size-110">Tu mail de contacto es <span class="hashtag--text">{{ user.email }}</span></p>
+            <p class="p-size-110">Tipo de usuario <span class="hashtag--text">{{ user.public.type }}</span></p>
+          </v-flex>
+        </v-layout>
+      </v-container>
+      <v-container fluid class="mt-2 mb-0" v-if="show">
+        <v-layout wrap align-center justify-center row fill-height class="my-0">
+          <v-flex xs12 md10 class="mb-0">
+            <p class="p-size-200 subtitle--text">Tus premios</p>
+            <p class="p-size-110">No hay premios en tu cuenta aún :-( </p>
+          </v-flex>
+        </v-layout>
+      </v-container>
+      <v-container fluid class="mt-2 mb-0" v-if="show">
+        <v-layout wrap align-center justify-center row fill-height class="my-0">
+          <v-flex xs12 md10 class="mb-0">
             <p class="p-size-200 subtitle--text">Tus dibujos</p>
-            <v-layout wrap row align-center justify-center fill-height class="my-0">
+            <v-layout wrap row align-start justify-start fill-height class="my-0" v-if="privateUser.user.public.draw >= 1">
               <v-flex xs6 md3 px-5 mb-4 v-for="(item, i) in privateUser.user.public.draw" :key="i" text-xs-center>
                 {{ item }}
                 <v-img
@@ -46,6 +64,11 @@
                     <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
                   </v-layout>
                 </v-img>
+              </v-flex>
+            </v-layout>
+            <v-layout wrap row align-start justify-start fill-height class="my-0" v-else>
+              <v-flex xs12>
+                <p class="p-size-110">No hay dibujos en tu cuenta aún :-(</p>
               </v-flex>
             </v-layout>
           </v-flex>

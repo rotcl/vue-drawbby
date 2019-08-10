@@ -1,36 +1,62 @@
 <template>
-  <div class="register">
-    <v-container>
-      <v-layout wrap row my-3 px-3 py-5>
-        <h1 class="headline font-italic mb-3">Login</h1>
-      </v-layout>
-      <v-form ref="form">
-        <v-layout wrap row justify-center>
-          <v-flex xs12 md8 ma-5 pa-3 class="elevation-3">
-            <v-layout wrap row justify-center pa-3>
-              <v-flex xs12>
-                <v-text-field v-model="users.username" :rules="rules.username" label="Nombre de usuario"></v-text-field>
-              </v-flex>
-              <v-flex xs12>
-                <v-text-field v-model="users.password" :rules="rules.password" :type="showPassword ? 'text': 'password'" :append-icon="showPassword ? 'visibility' : 'visibility_off'" @click:append="showPassword = !showPassword" label="Contraseña" autocomplete="new-password"></v-text-field>
-              </v-flex>
-              <v-flex xs12 v-if="error != null">
-                <p class="red--text">{{ error }}</p>
-              </v-flex>
-              <v-flex xs12 class="text-xs-center text-md-right">
-                <v-btn color="primary" @click="submit()">Ingresar</v-btn>
-              </v-flex>
-              <v-flex xs12>
-                <router-link tag="a" to="/recover"><a @click="dialog = false">¿Olvidaste tu contraseña?</a></router-link> / 
-                <router-link tag="a" to="/register"><a @click="dialog = false">Crear una cuenta</a></router-link>
-              </v-flex>
-            </v-layout>
+  <div class="login">
+    <v-content class="pa-0">
+      <v-container fluid class="mt-2 mb-0">
+        <v-layout wrap align-center justify-center row fill-height class="my-0">
+          <v-flex xs12 md10 class="mb-0">
+            <p class="p-size-200 subtitle--text">Login</p>
           </v-flex>
         </v-layout>
-      </v-form>
-      <v-dialog v-model="dialog" persistent max-width="400">
+      </v-container>
+      <v-container fluid>
+        <v-layout wrap align-center justify-center row fill-height>
+          <v-flex xs12 md10>
+            <v-container class="pa-0 my-0">
+              <v-layout wrap align-start justify-start row fill-height>
+                <v-flex xs12 sm7 md8 lg8 class="pa-2 my-0">
+                  <v-form ref="form" px-3>
+                    <v-layout wrap row pa-3>
+                      <v-flex xs12>
+                        <v-text-field v-model="users.username" :rules="rules.username" label="Nombre de usuario"></v-text-field>
+                      </v-flex>
+                      <v-flex xs12>
+                        <v-text-field v-model="users.password" :rules="rules.password" :type="showPassword ? 'text': 'password'" :append-icon="showPassword ? 'visibility' : 'visibility_off'" @click:append="showPassword = !showPassword" label="Contraseña" autocomplete="new-password"></v-text-field>
+                      </v-flex>
+                      <v-flex xs12 v-if="error != null">
+                        <p class="red--text">{{ error }}</p>
+                      </v-flex>
+                      <v-flex xs12 class="text-xs-center text-md-right">
+                        <v-btn color="primary" @click="submit()">Ingresar</v-btn>
+                      </v-flex>
+                      <v-flex xs12>
+                        <router-link tag="a" to="/register"><a @click="dialog = false">Crear una cuenta</a></router-link>
+                      </v-flex>
+                    </v-layout>
+                  </v-form>
+                </v-flex>
+                <v-flex xs12 sm5 md4 lg4 class="pa-2">
+                  <v-img
+                    :src="('/img/login.svg')"
+                    :lazy-src="('/img/login.svg')"
+                    width="100%">
+                    <v-layout
+                      slot="placeholder"
+                      fill-height
+                      align-center
+                      justify-center
+                      ma-0>
+                      <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
+                    </v-layout>
+                  </v-img>
+                </v-flex>
+              </v-layout>
+            </v-container>
+          </v-flex>
+        </v-layout>
+      </v-container>
+      <v-dialog v-model="dialog" max-width="400">
         <v-card>
-          <v-card-title class="headline">Has ingresado correctamente</v-card-title>
+          <v-card-title class="headline">Has ingresado con éxito.</v-card-title>
           <v-progress-linear
             indeterminate
             color="primary"
@@ -38,7 +64,7 @@
           ></v-progress-linear>
         </v-card>
       </v-dialog>
-    </v-container>
+    </v-content>
   </div>
 </template>
 
@@ -87,7 +113,7 @@ import { Configuration } from '../config'
           })
         }, 1500 )
       }).catch( error => {
-        this.$data.error = 'Datos incorrectos'
+        this.$data.error = error.msg
       })
     }
   }

@@ -10,7 +10,6 @@ import store from './store'
 import VueLazyload from 'vue-lazyload'
 // @ts-ignore
 import VueMultianalytics from 'vue-multianalytics'
-
 import './registerServiceWorker'
 
 Vue.config.productionTip = false
