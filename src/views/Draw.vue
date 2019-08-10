@@ -17,6 +17,12 @@
                 <v-flex xs12 sm5 md3 lg3 xl3 class="text-xs-center pa-3">
                   <v-layout wrap row>
                     <v-flex xs6 md12 px-1>
+                      <v-btn block color="black" :class="color == 'black' ? 'selectedI' : ''" @click="turnBlack()"></v-btn>
+                    </v-flex>
+                    <v-flex xs6 md12 px-1>
+                      <v-btn block color="white" :class="color == 'white' ? 'selected' : ''" @click="turnWhite()"></v-btn>
+                    </v-flex>
+                    <v-flex xs6 md12 px-1>
                       <v-btn block color="error" :class="color == 'red' ? 'selected' : ''" @click="turnRed()"></v-btn>
                     </v-flex>
                     <v-flex xs6 md12 px-1>
@@ -57,6 +63,8 @@ import tsdom from 'tsdom'
       width: '400',
       rows: ['','','','','','','','','',''],
       cols: ['','','','','','','','','',''],
+      black: 'black',
+      white: 'white',
       red: 'red',
       green: 'green',
       yellow: 'yellow',
@@ -66,6 +74,12 @@ import tsdom from 'tsdom'
     }
   },
   methods: {
+    turnBlack() {
+      this.$data.color = this.$data.black
+    },
+    turnWhite() {
+      this.$data.color = this.$data.white
+    },
     turnRed() {
       this.$data.color = this.$data.red
     },
@@ -81,28 +95,46 @@ import tsdom from 'tsdom'
     handl(event){
       let el = tsdom(event.target)
       console.log(this.$data.color)
+      if (this.$data.color == 'white') {
+        el.removeClass('blue')
+        el.removeClass('yellow')
+        el.removeClass('green')
+        el.removeClass('red')
+        el.removeClass('black')
+      }
+      if (this.$data.color == 'black') {
+        el.removeClass('blue')
+        el.removeClass('yellow')
+        el.removeClass('green')
+        el.removeClass('red')
+        el.addClass(this.$data.color)
+      }
       if (this.$data.color == 'red') {
         el.removeClass('blue')
         el.removeClass('yellow')
         el.removeClass('green')
+        el.removeClass('black')
         el.addClass(this.$data.color)
       }
       if (this.$data.color == 'green') {
         el.removeClass('blue')
         el.removeClass('yellow')
         el.removeClass('red')
+        el.removeClass('black')
         el.addClass(this.$data.color)
       }
       if (this.$data.color == 'blue') {
         el.removeClass('red')
         el.removeClass('yellow')
         el.removeClass('green')
+        el.removeClass('black')
         el.addClass(this.$data.color)
       }
       if (this.$data.color == 'yellow') {
         el.removeClass('blue')
         el.removeClass('red')
         el.removeClass('green')
+        el.removeClass('black')
         el.addClass(this.$data.color)
       }
       console.log(event.target)
@@ -115,7 +147,7 @@ import tsdom from 'tsdom'
 export default class Draw extends Vue {}
 </script>
 
-<style>
+<style lang="scss">
 #art{
   max-width: 100vw;
   display: table;
@@ -143,5 +175,8 @@ export default class Draw extends Vue {}
 }
 .selected {
   border: 3px dashed black !important;
+}
+.selectedI {
+  border: 3px dashed white !important;
 }
 </style>
