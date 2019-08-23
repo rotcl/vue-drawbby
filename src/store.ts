@@ -11,7 +11,6 @@ export default new Vuex.Store({
     token: null,
     drawer: false,
     items: [ 
-      { text: 'Inicio', to: '/', icon:'home'},
       { text: 'Acerca de', to: '/about', icon: 'toc'},
       { text: 'Leaderboard', to: '/leaderboard', icon: 'rounded_corner'},
       { text: 'Premios', to: '/weekly-goals', icon:'group'},

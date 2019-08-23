@@ -22,6 +22,14 @@
       <p class="drawer-100 mt-2 text-uppercase" v-if="user != null && user.human == 'normal'">{{ user.username }}</p>
     </v-flex>
     <v-list>
+      <v-list-tile class="drawer-100" v-if="user != null" to="/draw">
+        <v-list-tile-action>
+          <v-icon>person</v-icon>
+        </v-list-tile-action>
+        <v-list-tile-content>
+          Dibujar ahora
+        </v-list-tile-content>
+      </v-list-tile>
       <v-list-tile
         v-for="(link, i) in links"
         :key="i"

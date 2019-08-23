@@ -5,6 +5,7 @@
       <span class="nav-100"><router-link to="/" class="nav-100" style="color: #3E4551">{{ title }}</router-link></span>
     </v-toolbar-title>
     <v-spacer />
+    <v-btn class="ml-0 nav-100 hidden-sm-and-down" flat v-if="user != null" to="/draw">Dibujar</v-btn>
     <v-btn
       v-for="(link, i) in links"
       :key="i"

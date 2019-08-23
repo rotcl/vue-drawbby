@@ -36,6 +36,9 @@
                   <a class="a-size-110">{{item.LinkName}}</a><br>
                 </router-link>
               </div>
+              <div v-for="(item,i) in external" :key="i" class="mt-1">
+                <a class="a-size-110" :href="item.Link" target="_blank" ref="noopener noreferrer">{{item.LinkName}}</a><br>
+              </div>
             </v-flex>
             <v-flex xs12 md3 sm4 lg3 class="py-2" v-if="user != null && user.human == 'community'">
               <p class="p-size-140 mb-0"><b>Moderator menu 🤺</b></p>  
@@ -133,6 +136,12 @@
           {
             "LinkName" : "Contacto",
             "Link" : "/contact"
+          },
+        ],
+        external: [
+          {
+            "LinkName": "Status servidor",
+            "Link": "https://status.drawbby.ml"
           },
         ],
         mod: [
