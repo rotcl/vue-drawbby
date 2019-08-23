@@ -10,11 +10,19 @@ import store from './store'
 import VueLazyload from 'vue-lazyload'
 // @ts-ignore
 import VueMultianalytics from 'vue-multianalytics'
+
+import * as Sentry from '@sentry/browser';
+import * as Integrations from '@sentry/integrations';
 import './registerServiceWorker'
 
 Vue.config.productionTip = false
 
 Vue.use(VueLazyload)
+
+Sentry.init({
+  dsn: 'https://bcd11bef07cb46f1b0f1c2801d44f466@sentry.io/1539320',
+  integrations: [new Integrations.Vue({Vue, attachProps: true})],
+});
 
 let gaConfig = {
   appName: 'Drawbby', 
