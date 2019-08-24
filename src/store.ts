@@ -15,7 +15,8 @@ export default new Vuex.Store({
       { text: 'Leaderboard', to: '/leaderboard', icon: 'rounded_corner'},
       { text: 'Premios', to: '/weekly-goals', icon:'group'},
       { text: 'Contacto', to: '/contact', icon:'local_post_office'}
-    ]
+    ],
+    selectedColor: null,
   },
   getters:{
     links: (state) => {
@@ -32,6 +33,9 @@ export default new Vuex.Store({
     logout(state) {
       state.user = null
       state.token = null
+    },
+    color(state, selectedColor) {
+      state.selectedColor = selectedColor
     },
     setDrawer: (state, payload) => (state.drawer = payload),
     toggleDrawer: state => (state.drawer = !state.drawer)

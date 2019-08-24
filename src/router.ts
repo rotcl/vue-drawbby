@@ -81,6 +81,12 @@ export default new Router({
       beforeEnter: authRequired
     },
     {
+      path: '/draw2',
+      name: 'draw2',
+      component: () => import(/* webpackChunkName: "draw" */ './views/Draw2.vue'),
+      beforeEnter: authRequired
+    },
+    {
       path: '/user/:ptoken',
       name: 'private',
       component: () => import(/* webpackChunkName: "user" */ './views/User.vue'),

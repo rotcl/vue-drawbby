@@ -12,10 +12,10 @@ import VueLazyload from 'vue-lazyload'
 import VueMultianalytics from 'vue-multianalytics'
 import './registerServiceWorker'
 
+
 Vue.config.productionTip = false
 
 Vue.use(VueLazyload)
-
 let gaConfig = {
   appName: 'Drawbby', 
   appVersion: '0.1', 
@@ -49,10 +49,13 @@ Vue.use(Vuetify, {
     facebook: '#3b5998',
     instagram: '#8a3ab9',
     twitter: '#1da1f2',
+    black: '#000',
+    white: '#fff',
   },
   iconfont: 'md',
 })
 
+export const EventBus = new Vue()
 
 new Vue({
   router,
