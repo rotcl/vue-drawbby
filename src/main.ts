@@ -33,7 +33,7 @@ Vue.use(VueMultianalytics, {
 })
 Vue.use(Vuetify, {
   theme: {
-    hashtag: '#9e9e9e',
+    hashtag: '#525252',
     subtitle: '#616161',
     primtitle: '#0277bd',
     tesseract: '#FFC107',

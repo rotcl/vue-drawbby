@@ -1,6 +1,6 @@
 <template>
   <v-app class="white">
-    <div id="app">
+    <div>
       <Nav/>
       <Drawer/>
       <v-content id="home" class="pb-0">

@@ -1,6 +1,6 @@
 <template>
   <v-toolbar app color="white" height="55px">
-    <v-toolbar-side-icon class="hidden-md-and-up" @click="toggleDrawer"/>
+    <v-toolbar-side-icon class="hidden-md-and-up" @click="toggleDrawer" aria-label="Abrir menu"/>
     <v-toolbar-title class="ml-0 pl-1 mr-1">
       <span class="nav-100"><router-link to="/" class="nav-100" style="color: #3E4551">{{ title }}</router-link></span>
     </v-toolbar-title>

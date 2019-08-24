@@ -61,7 +61,7 @@
                     <span v-for="(item,i) in stack" :key="i">
                       <v-tooltip bottom>
                         <template v-slot:activator="{ on }" >
-                          <a :href="item.link" target="_blank" flat class="ma-0">
+                          <a :href="item.link" target="_blank" rel="noopener noreferrer" :aria-label="item.name" class="ma-0">
                             <img :src="item.image" width="30vh" alt="" srcset="" dark v-on="on">
                           </a> 
                           &nbsp;&nbsp;&nbsp;

@@ -8,7 +8,7 @@
           <p class="footer-130" >Sígue a Drawbby:
             <span v-for="(item,i) in socialLinks" :key="i">
               <v-tooltip bottom>
-                <v-btn flat icon :href="item.link" slot="activator">
+                <v-btn flat icon rel="noopener noreferrer" :aria-label="item.name" :href="item.link" slot="activator">
                   <v-icon>{{item.icon}}</v-icon>
                 </v-btn>
                 <span>{{item.name}}</span>
